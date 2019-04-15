@@ -24,7 +24,7 @@ if(isset ($_GET['error'])){
     }
     echo '</p>';
 }
-
+//kas heeft dit gemaakt
 ?>
 <div class="container">
     <div class="form">
