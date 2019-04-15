@@ -1,22 +1,46 @@
 <?php
+require 'config.php';
+function pwdCheckUpper($string) {
+    if(preg_match("/[A-Z]/", $string)===0) {
+        return true;
+    }
+    return false;
+}
+
+
+function pwdCheckSpecial($string) {
+    if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $string)=== 0) {
+        return true;
+    }
+    return false;
+}
+
+function emailcheck($db, $email) {
+    $sql = "SELECT * FROM users WHERE email=:email";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':email'     => $email
+    ]);
+    return  (bool)$prepare->fetchColumn();
+}
 
 if ($_POST['type'] === 'register') {
-    $username = $_POST['username'];
-    $email = $_POST['email'];
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
     $emailcheck = filter_var($email, FILTER_VALIDATE_EMAIL);
-
-    if (pwdCheckUpper($password) == true && pwdCheckSpecial($password) == false){
-        header('location: ../register.php?error=charcheck');
+    if(empty($username)){
+        header('location: ../register.php?error=emptyuser');
         exit;
-    } else if (strlen($password) < 7)
-    {
-        header('location: ../register.php?error=pwdlength');
+    } else if(strlen($username) >= 32){
+        header('location: ../register.php?error=userlength');
+        exit;
+    } else if (pwdCheckUpper($password) == true && pwdCheckSpecial($password) == false){
+        header('location: ../register.php?error=charcheck');
         exit;
     } else if ($password_confirm != $password){
         header('location: ../register.php?error=pwdmatch');
-
         exit;
     } else if($emailcheck == false){
         header('location: ../register.php?error=invalidmail');
@@ -25,20 +49,14 @@ if ($_POST['type'] === 'register') {
         header('location: ../register.php?error=emailexists');
         exit;
     }
-    if(!$_POST['accept_TOS']) {
-        header('location: ../register.php?error=tos');
-        exit;
-    }
-
-    $cleanpwd = trim($password);
     $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users(username,email, password) VALUES( :email, :password)";
+    $sql = "INSERT INTO users(username, email, password) VALUES(:username, :email, :password)";
     $prepare = $db->prepare($sql);
     $prepare->execute([
+        ':username'  => $username,
         ':email'     => $email,
         ':password'  => $hashedpwd
     ]);
-
 
     header('location: ../index.php?success=register');
     exit;
