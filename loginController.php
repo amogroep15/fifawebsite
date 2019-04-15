@@ -1,7 +1,7 @@
 <?php
 
 if ($_POST['type'] === 'register') {
-    $username = $_POST['']
+    $username = $_POST['username'];
     $email = $_POST['email'];
     $password = $_POST['password'];
     $password_confirm = $_POST['password_confirm'];
@@ -32,7 +32,7 @@ if ($_POST['type'] === 'register') {
 
     $cleanpwd = trim($password);
     $hashedpwd = password_hash($password, PASSWORD_DEFAULT);
-    $sql = "INSERT INTO users(username, email, password) VALUES(:username, :email, :password)";
+    $sql = "INSERT INTO users(username,email, password) VALUES( :email, :password)";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':email'     => $email,
