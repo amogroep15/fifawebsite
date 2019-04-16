@@ -7,7 +7,7 @@
  */
 ?>
 <footer>
-    &copy; copyright Kas Rasenberg, Daniel vahabi, Rick van Zelst en Hassan Hassan, AMO Groep 15 <?php echo date('d-m-y');?>
+    &copy; copyright Kas Rasenberg, Daniel Vahabi, Rick van Zelst en Hassan Hassan, AMO Groep 15 <?php echo date('d-m-y');?>
 </footer>
 </body>
 </html>

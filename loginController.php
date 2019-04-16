@@ -62,5 +62,30 @@ if ($_POST['type'] === 'register') {
     exit;
 }
 
+if ($_POST['type'] === 'login'){
+    $username = trim($_POST['username']);
+    $email = trim($_POST['email']);
+    $password = $_POST['password'];
 
+    $sql = "SELECT * FROM users WHERE email = :email";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':email'     => $email
+    ]);
+    $result = $prepare->fetch();
+
+    if(!isset($result)){
+        header('location: login.php?error=unknownemail');
+        exit();
+    }
+
+    if($password_verify($password,$result)['password']){
+    $_SESSION['id'] = $result['id'];
+    }
+    else{
+        header('location: index.php?error=incorrectpassword');
+        exit();
+    }
+        header('location: index.php?succes=login');
+}
 
