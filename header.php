@@ -20,4 +20,6 @@ require 'config.php';
     <link rel="stylesheet" type="text/css" href="style.css">
     <title>FifaBet</title>
 </head>
-<body>
+<header>
+    
+</header>
