@@ -4,12 +4,15 @@ body {
     background-size: 100%;
     max-width: 1260px;
     margin: 0 auto;
+    font-family: sans-serif;
 }
 
 footer {
     color: white;
     text-align: center;
     background-color: #003B94;
+    height: 20px;
+    padding: 15px;
 }
 
 header {
@@ -21,7 +24,7 @@ header {
 }
 
 h1{
-    
+    padding: 10px;
 }
 
 .loginbutton {
@@ -30,8 +33,27 @@ h1{
     width: 215px;
     height: 50px;
     border: none;
+    margin: 10px;
 }
 
 .login {
     background-color: white;
+    height: 660px;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.form {
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+}
+
+.form-group {
+    margin: 5px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    max-width: 300px;
+    margin: 0 auto;
 }
