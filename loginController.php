@@ -78,14 +78,18 @@ if ($_POST['type'] === 'login'){
         header('location: login.php?error=unknownemail');
         exit();
     }
-
-    if($password_verify($password,$result)['password']){
-    $_SESSION['id'] = $result['id'];
-    }
-    else{
-        header('location: index.php?error=incorrectpassword');
+    if($username !== $result['username']){
+        header('Location: login.php?error=incorrectusername');
         exit();
     }
-        header('location: index.php?succes=login');
+    if(password_verify($password, $result['password'])){
+        $_SESSION['id'] = $result['id'];
+    }
+    else{
+       header('location: index.php?error=incorrectpassword');
+       exit();
+    }
+       header('location: index.php?succes=login');
+       exit();
 }
 
