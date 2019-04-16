@@ -1,8 +1,8 @@
 body {
-    background-image: url("imgs/bg.jpg");
+    background-image: url("imgs/bgjpg.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    max-width: 960px;
+    max-width: 1260px;
     margin: 0 auto;
 }
 
@@ -16,11 +16,22 @@ header {
     text-align: center;
     background-color: #003B94;
     color: white;
+    height: 60px;
 
 }
 
+h1{
+    
+}
+
 .loginbutton {
-    background:url("imgs/loginknop.jpg");
+    background:url("imgs/loginknop.png");
     cursor:pointer;
+    width: 215px;
+    height: 50px;
     border: none;
+}
+
+.login {
+    background-color: white;
 }

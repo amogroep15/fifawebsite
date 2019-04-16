@@ -1,5 +1,5 @@
 <?php require 'header.php'; ?>
-
+<div class="login">
     <div class="form">
         <form action="loginController.php" method="post">
             <input type="hidden" name="type" value="login">
@@ -22,6 +22,7 @@
             <input class="loginbutton" type="submit" value="">
         </form>
     </div>
+</div>
 </body>
 <?php require 'footer.php'; ?>
 
