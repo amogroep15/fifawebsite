@@ -1,12 +1,26 @@
 body {
+    background-image: url("imgs/bg.jpg");
+    background-repeat: no-repeat;
+    background-size: 100%;
     max-width: 960px;
     margin: 0 auto;
 }
 
 footer {
-
+    color: white;
+    text-align: center;
+    background-color: #003B94;
 }
 
 header {
+    text-align: center;
+    background-color: #003B94;
+    color: white;
 
+}
+
+.loginbutton {
+    background:url("imgs/loginknop.jpg");
+    cursor:pointer;
+    border: none;
 }

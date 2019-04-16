@@ -21,5 +21,6 @@ require 'config.php';
     <title>FifaBet</title>
 </head>
 <header>
-    
+    <h1>FifaBet</h1>
 </header>
+<body>
