@@ -25,8 +25,13 @@ h1{
     text-align: center;
 }
 
-
-
+.index {
+    background-color: white;
+    border: #32CD32;
+    height: 660px;
+    border-style: solid;
+}
+    border-width: 5px;
 .login {
     background-color: white;
 }
@@ -51,6 +56,14 @@ h1{
     padding:15px 30px;
     text-decoration:none;
     text-shadow:0px 1px 0px #2f6627;
+.admin {
+    background-color: white;
+    height: 660px;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+}
+
 }
 
 .body {
