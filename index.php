@@ -1,5 +1,6 @@
 <?php
 require 'header.php';
+echo "<div class='index'>";
 
 if(isset ($_GET['success'])) {
     if($_GET['success'] == 'register') {
@@ -26,5 +27,6 @@ else{
 <p>als je een admin ben mag je naar deze pagina<a href='admin.php'>admin pagina!</a></p>
 
 <?php
+echo '</div>';
 require 'footer.php';
 ?>

@@ -35,8 +35,22 @@ h1{
     border: none;
     margin: 10px;
 }
-
+.index {
+    background-color: white;
+    height: 660px;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+}
 .login {
+    background-color: white;
+    height: 660px;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.admin {
     background-color: white;
     height: 660px;
     border: #32CD32;

@@ -16,9 +16,9 @@ else {
 }
 
 ?>
-
-<h1>Dit is een Admin pagina.</h1>
-<p>Jij bent admin</p>
-
+<div class="admin">
+    <h1>Dit is een Admin pagina.</h1>
+    <p>Jij bent admin</p>
+</div>
 <?php
 require 'footer.php';
