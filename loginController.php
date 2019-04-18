@@ -84,12 +84,20 @@ if ($_POST['type'] === 'login'){
     }
     if(password_verify($password, $result['password'])){
         $_SESSION['id'] = $result['id'];
+        if(isset($result['admin'])){
+        $_SESSION['admin'] = $result['admin'];
+        }
     }
     else{
        header('location: index.php?error=incorrectpassword');
        exit();
     }
+
        header('location: index.php?succes=login');
        exit();
 }
 
+if ($_POST['type'] === 'logout'){
+session_destroy();
+header('Location: index.php?success=logout');
+}
