@@ -1,5 +1,6 @@
 <?php
 require 'header.php';
+echo '<div class="adminpage">';
 if(isset($_SESSION['admin'])){
     if($_SESSION['admin'] == 1){
 
@@ -21,4 +22,5 @@ else {
     <p>Jij bent admin</p>
 </div>
 <?php
+echo '</div>';
 require 'footer.php';

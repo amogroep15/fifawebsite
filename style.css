@@ -116,3 +116,20 @@ h1{
     padding: 15px;
     margin: 162px;
 }
+
+.adminpage {
+    background-color: white;
+    height: 100%;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+.admin {
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+    margin: 162px;
+}
