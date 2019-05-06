@@ -82,3 +82,37 @@ h1{
     padding: 15px;
     margin: 180px;
 }
+
+.home {
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+    margin: 175px;
+}
+
+.homepage {
+    background-color: white;
+    height: 100%;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+.container {
+    background-color: white;
+    height: 100%;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+.register {
+    text-align: center;
+    margin: 0 auto;
+    padding: 15px;
+    margin: 162px;
+}

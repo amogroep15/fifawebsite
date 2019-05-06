@@ -27,8 +27,7 @@ if(isset ($_GET['error'])){
 //kas heeft dit gemaakt
 ?>
 <div class="container">
-    <div class="form">
-<div class="form1">
+<div class="register">
             <form action="loginController.php" method="post" >
                 <input type="hidden" name="type" value="register">
                 <div class="form-group">
