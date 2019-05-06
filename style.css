@@ -2,7 +2,6 @@ body {
     background-image: url("imgs/bgjpg.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    max-width: 1260px;
     margin: 0 auto;
     font-family: sans-serif;
 }
@@ -11,7 +10,7 @@ footer {
     color: white;
     text-align: center;
     background-color: #003B94;
-    height: 20px;
+    height: 11px;
     padding: 15px;
 }
 
@@ -19,12 +18,13 @@ header {
     text-align: center;
     background-color: #003B94;
     color: white;
-    height: 60px;
-
+    height: 90px;
 }
 
 h1{
     padding: 10px;
+    margin: 0;
+    font-size: 4em;
 }
 
 .loginbutton {
@@ -42,12 +42,16 @@ h1{
     border: #32CD32;
     border-style: solid;
     border-width: 5px;
+    max-width: 1260px;
+    margin: 0 auto;
 }
 
 .form {
     text-align: center;
     margin: 0 auto;
     padding: 15px;
+    vertical-align: middle;
+
 }
 
 .form-group {
