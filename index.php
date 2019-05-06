@@ -28,6 +28,9 @@ else{
 <p>als je een admin ben mag je naar deze pagina <a href='admin.php'>admin pagina!</a></p>
 
 <?php
+if (!isset($_SESSION)){
+    echo "je kan <a href='create.php'>hier</a> een team aanmaken";
+}
 echo '</div>';
 echo '</div>';
 require 'footer.php';

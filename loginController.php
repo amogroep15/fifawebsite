@@ -57,6 +57,7 @@ if ($_POST['type'] === 'register') {
         ':email'     => $email,
         ':password'  => $hashedpwd
     ]);
+    //kas heeft dit gemaakt
     header('location: ../index.php?success=register');
     exit;
 }
@@ -99,4 +100,40 @@ if ($_POST['type'] === 'login'){
 if ($_POST['type'] === 'logout'){
 session_destroy();
 header('Location: index.php?success=logout');
+}
+
+if ($_POST['type'] === 'create'){
+$creator = $_SESSION['id'];
+$name = trim($_POST['name']);
+if(!isset($name) || !isset($creator)){
+ header('Location: create.php?error=emptyname');
+    exit();
+}
+if(strlen($name) > 32) {
+    header('Location: create.php?error=charoverflow');
+    exit();
+}
+
+
+$sql = "SELECT * from teams WHERE name = :name";
+$prepare = $db->prepare($sql);
+$prepare->execute([
+    ':name' => $name
+]);
+$result = $prepare->fetch();
+
+if($result != 0){
+    header('Location: create.php?error=teamexists');
+    exit();
+}
+
+$sql = "INSERT INTO teams(name, creator) VALUES (:name, :creator)";
+$prepare = $db->prepare($sql);
+$prepare->execute([
+    ':name' => $name,
+    ':creator' => $creator
+]);
+
+header('Location: index.php?success=create');
+exit();
 }
