@@ -57,7 +57,6 @@ if ($_POST['type'] === 'register') {
         ':email'     => $email,
         ':password'  => $hashedpwd
     ]);
-    //kas heeft dit gemaakt
     header('location: ../index.php?success=register');
     exit;
 }
