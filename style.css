@@ -10,8 +10,13 @@ footer {
     color: white;
     text-align: center;
     background-color: #003B94;
-    height: 11px;
+    height: 41px;
     padding: 15px;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+
 }
 
 header {
@@ -38,7 +43,7 @@ h1{
 
 .login {
     background-color: white;
-    height: 660px;
+    height: 100%;
     border: #32CD32;
     border-style: solid;
     border-width: 5px;
