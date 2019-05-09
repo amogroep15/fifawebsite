@@ -20,6 +20,8 @@ else {
 <div class="admin">
     <h1>Dit is een Admin pagina.</h1>
     <p>Jij bent admin</p>
+    <a href='adminTeams.php'>Teams verwijderen/wijzigen</a>
+    <a href='create.php'>Teams aanmaken</a>
 </div>
 <?php
 echo '</div>';

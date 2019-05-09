@@ -96,7 +96,38 @@ if ($_POST['type'] === 'login'){
        header('location: index.php?succes=login');
        exit();
 }
+if ($_POST['type'] === 'delete'){
+    if(isset($_SESSION['admin'])){
+        if($_SESSION['admin'] == 1){
+    
+        }
+        else {
+            header('Location: index.php?error=noadmin');
+            exit();
+        }
+    
+    }
+    else {
+        header('Location: index.php?error=noadmin');
+        exit();
+    }
+    
+    $id = $_GET['id'];
+    if(empty($id)){
+        header('Location: adminTeams.php?error=noid');
+        exit();
+    }
+    $sql = "DELETE from teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $_GET['id']
+    ]);
 
+    header('Location: adminTeams.php?success=delete');
+    exit();
+
+
+}
 if ($_POST['type'] === 'logout'){
 session_destroy();
 header('Location: index.php?success=logout');
