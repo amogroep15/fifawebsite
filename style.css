@@ -58,6 +58,7 @@ h1{
     border-width: 5px;
     max-width: 1260px;
     margin: 0 auto;
+    margin-bottom: 70px;
 }
 .form {
     text-align: center;
