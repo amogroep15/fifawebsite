@@ -15,9 +15,11 @@ if(isset ($_GET['success'])) {
     }
 }
 if(isset($_SESSION['id'])){
-    echo "<form action='loginController.php' method='post'>
+    echo "<form action='loginController.php' method='post'>,
     <input type='hidden' name='type' value='logout'>
-    <input type='submit' value='afmelden'>";
+    <input type='submit' value='afmelden'>
+    <a href='create.php'>Team aanmaken</a>";
+    
 }
 else{
     echo "Je bent niet ingelogd <a href='login.php'>Login</a> of <a href='register.php'>Register</a>";
