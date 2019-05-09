@@ -1,6 +1,6 @@
 <?php
 require 'header.php';
-
+echo '<div class="create">'
 ?>
     <form action="loginController.php" method="POST">
         <input type="hidden" name="type" value="create">
@@ -8,5 +8,5 @@ require 'header.php';
         <input type="submit">
     </form>
 <?php
-
+echo '</div>';
 require 'footer.php';
