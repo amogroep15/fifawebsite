@@ -85,6 +85,17 @@ h1{
     margin: 0 auto;
 }
 
+.teams {
+    background-color: white;
+    height: 100%;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+    max-width: 1260px;
+    margin: 0 auto;
+    text-align: center;
+}
+
 .indextext {
     text-align: center;
     margin: 0 auto;

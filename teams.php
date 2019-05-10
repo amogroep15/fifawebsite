@@ -1,16 +1,32 @@
 <?php
 require 'header.php';
+if(isset($_SESSION)){
 
-echo '<div class="index"';
+}
+else {
+    header('Location: index.php?error=nologin');
+    exit();
+}
+echo '<div class="teams">';
 $sql = "SELECT * from teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(2);
-echo '<h2>Teams overzicht</h2>';
+echo '<h1>Teams overzicht</h1>';
 foreach ($teams as $team){
     echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
     echo '</br>';
 }
-
+$creator = $_SESSION['id'];
+$sql = "SELECT * from teams WHERE creator = $creator";
+$query = $db->query($sql);
+$teams = $query->fetchAll(2);
+echo '<h2>Mijn teams</h2>';
+foreach($teams as $team){
+    echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
+    echo '</br>';
+    echo '<a href="edit.php?id='.$team['id'].'">wijzig team</a>';
+    echo '</br>';
+}
 
 ?>
 

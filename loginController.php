@@ -83,6 +83,7 @@ if ($_POST['type'] === 'login'){
         $_SESSION['admin'] = $result['admin'];
         }
     }
+
     else{
        header('location: index.php?error=incorrectpassword');
        exit();
@@ -117,11 +118,8 @@ if ($_POST['type'] === 'delete'){
     $prepare->execute([
         ':id' => $_GET['id']
     ]);
-
     header('Location: adminTeams.php?success=delete');
     exit();
-
-
 }
 if ($_POST['type'] === 'logout'){
     session_destroy();
