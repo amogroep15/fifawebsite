@@ -129,78 +129,85 @@ if ($_POST['type'] === 'delete'){
 
 }
 if ($_POST['type'] === 'logout'){
-session_destroy();
-header('Location: index.php?success=logout');
+    session_destroy();
+    header('Location: index.php?success=logout');
 }
 
 if ($_POST['type'] === 'create'){
-$creator = $_SESSION['id'];
-$name = trim($_POST['name']);
-$p1 = trim($_POST['p1']);
-$p2 = trim($_POST['p2']);
-$p3 = trim($_POST['p3']);
-$p4 = trim($_POST['p4']);
-$p5 = trim($_POST['p5']);
-$p6 = trim($_POST['p6']);
-$p7 = trim($_POST['p7']);
-$p8 = trim($_POST['p8']);
-$p9 = trim($_POST['p9']);
-$p10 = trim($_POST['p10']);
-$p11 = trim($_POST['p11']);
-$p12 = trim($_POST['p12']);
-$p13 = trim($_POST['p13']);
-$p14 = trim($_POST['p14']);
-$p15 = trim($_POST['p15']);
-$p16 = trim($_POST['p16']);
+    if(isset($_SESSION)){
+
+    }
+    else {
+        header('Location: index.php?error=nologin');
+        exit();
+    }
+    $creator = $_SESSION['id'];
+    $name = trim($_POST['name']);
+    $p1 = trim($_POST['p1']);
+    $p2 = trim($_POST['p2']);
+    $p3 = trim($_POST['p3']);
+    $p4 = trim($_POST['p4']);
+    $p5 = trim($_POST['p5']);
+    $p6 = trim($_POST['p6']);
+    $p7 = trim($_POST['p7']);
+    $p8 = trim($_POST['p8']);
+    $p9 = trim($_POST['p9']);
+    $p10 = trim($_POST['p10']);
+    $p11 = trim($_POST['p11']);
+    $p12 = trim($_POST['p12']);
+    $p13 = trim($_POST['p13']);
+    $p14 = trim($_POST['p14']);
+    $p15 = trim($_POST['p15']);
+    $p16 = trim($_POST['p16']);
 
 
-if(empty($name) || empty($creator) || empty($p1) || empty($p2) || empty($p3)){
-    header('Location: create.php?error=missingplayers');
+    if(empty($name) || empty($creator) || empty($p1) || empty($p2) || empty($p3)){
+        header('Location: create.php?error=missingplayers');
+        exit();
+    }
+
+    if(strlen($name) > 32 || strlen($p1) > 32 || strlen($p2) > 32 || strlen($p3) > 32 || strlen($p4) > 32 || strlen($p5) > 32 || strlen($p6) > 32 || strlen($p7) > 32 || strlen($p8) > 32 || strlen($p9) > 32 || strlen($p10) > 32 || strlen($p11) > 32 || strlen($p12) > 32 || strlen($p13) > 32 || strlen($p14) > 32 || strlen($p15) > 32 || strlen($p16) > 32){
+        header('Location: create.php?error=charoverflow');
+        exit();
+    }
+
+
+
+    $sql = "SELECT * from teams WHERE name = :name";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':name' => $name,
+    ]);
+    $result = $prepare->fetch();
+
+    if($result != 0){
+        header('Location: create.php?error=teamexists');
+        exit();
+    }
+
+    $sql = "INSERT INTO teams(name, creator,player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16) VALUES (:name, :creator, :p1, :p2, :p3, :p4, :p5, :p6, :p7, :p8, :p9, :p10, :p11, :p12, :p13, :p14, :p15, :p16)";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':name' => $name,
+        ':creator' => $creator,
+        ':p1' => $p1,
+        ':p2' => $p2,
+        ':p3' => $p3,
+        ':p4' => $p4,
+        ':p5' => $p5,
+        ':p6' => $p6,
+        ':p7' => $p7,
+        ':p8' => $p8,
+        ':p9' => $p9,
+        ':p10' => $p10,
+        ':p11' => $p11,
+        ':p12' => $p12,
+        ':p13' => $p13,
+        ':p14' => $p14,
+        ':p15' => $p15,
+        ':p16' => $p16
+    ]);
+
+    header('Location: index.php?success=create');
     exit();
-}
-
-if(strlen($name) > 32 || strlen($p1) > 32 || strlen($p2) > 32 || strlen($p3) > 32 || strlen($p4) > 32 || strlen($p5) > 32 || strlen($p6) > 32 || strlen($p7) > 32 || strlen($p8) > 32 || strlen($p9) > 32 || strlen($p10) > 32 || strlen($p11) > 32 || strlen($p12) > 32 || strlen($p13) > 32 || strlen($p14) > 32 || strlen($p15) > 32 || strlen($p16) > 32){
-    header('Location: create.php?error=charoverflow');
-    exit();
-}
-
-
-
-$sql = "SELECT * from teams WHERE name = :name";
-$prepare = $db->prepare($sql);
-$prepare->execute([
-    ':name' => $name,
-]);
-$result = $prepare->fetch();
-
-if($result != 0){
-    header('Location: create.php?error=teamexists');
-    exit();
-}
-
-$sql = "INSERT INTO teams(name, creator,player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16) VALUES (:name, :creator, :p1, :p2, :p3, :p4, :p5, :p6, :p7, :p8, :p9, :p10, :p11, :p12, :p13, :p14, :p15, :p16)";
-$prepare = $db->prepare($sql);
-$prepare->execute([
-    ':name' => $name,
-    ':creator' => $creator,
-    ':p1' => $p1,
-    ':p2' => $p2,
-    ':p3' => $p3,
-    ':p4' => $p4,
-    ':p5' => $p5,
-    ':p6' => $p6,
-    ':p7' => $p7,
-    ':p8' => $p8,
-    ':p9' => $p9,
-    ':p10' => $p10,
-    ':p11' => $p11,
-    ':p12' => $p12,
-    ':p13' => $p13,
-    ':p14' => $p14,
-    ':p15' => $p15,
-    ':p16' => $p16
-]);
-
-header('Location: index.php?success=create');
-exit();
 }

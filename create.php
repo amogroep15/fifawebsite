@@ -1,6 +1,13 @@
 <?php
 require 'header.php';
-echo '<div class="create">'
+echo '<div class="create">';
+if(isset($_SESSION)){
+
+}
+else {
+    header('Location: index.php?error=nologin');
+    exit();
+}
 ?>
     <form action="loginController.php" method="POST">
         <input type="hidden" name="type" value="create">
