@@ -44,6 +44,7 @@ else{
 
 <h1>Dit is een index</h1>
 <p>als je een admin ben mag je naar deze pagina <a href='admin.php'>admin pagina!</a></p>
+<p>Alle teams <a href='teams.php'>bekijken</a><p>
 
 <?php
 if (isset($_SESSION)){

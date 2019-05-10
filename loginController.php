@@ -63,7 +63,6 @@ if ($_POST['type'] === 'register') {
 }
 
 if ($_POST['type'] === 'login'){
-    $username = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = $_POST['password'];
 
@@ -76,10 +75,6 @@ if ($_POST['type'] === 'login'){
 
     if(!isset($result)){
         header('location: login.php?error=unknownemail');
-        exit();
-    }
-    if($username !== $result['username']){
-        header('Location: login.php?error=incorrectusername');
         exit();
     }
     if(password_verify($password, $result['password'])){
