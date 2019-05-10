@@ -24,7 +24,7 @@ foreach ($teams as $team){
     echo '<input type="hidden" name="type" value="delete">';
     echo '<input type="submit" value="Verwijder team">';
     echo '</form>';
-    echo '  <a href="edit.php?id='.$team['id'].'">wijzig team</a>';
+    echo ' <a href="edit.php?id='.$team['id'].'">wijzig team</a>';
 }
 
 ?>

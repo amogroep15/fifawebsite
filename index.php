@@ -1,33 +1,35 @@
 <?php
 require 'header.php';
 if($_SERVER['REQUEST_METHOD'] == 'GET'){
-    if($_GET['url'] == 'matches'){
-        if(isset($_GET['token'])){
-            header('Content-Type: application/json');
-            $token = $_GET['token'];
-            if(empty($token)){
-                $error['error'] = 'notoken';
-                echo json_encode($error);
-                exit;
-            }
-            $sql = "SELECT * FROM tokens WHERE token = :token";
-            $prepare = $db->prepare($sql);
-            $prepare->execute([
-                ':token'     => $token
-            ]);
-            $result = $prepare->fetch();
-            if($result == 0){
-                $error['error'] = 'wrongtoken';
-                echo json_encode($error);
-                exit;
-            }
-            else if(isset($result['id'])) {
-                $sql = "SELECT * FROM teams";
+    if(!empty($_GET['url'])){
+        if($_GET['url'] == 'matches'){
+            if(isset($_GET['token'])){
+                header('Content-Type: application/json');
+                $token = $_GET['token'];
+                if(empty($token)){
+                    $error['error'] = 'notoken';
+                    echo json_encode($error);
+                    exit;
+                }
+                $sql = "SELECT * FROM tokens WHERE token = :token";
                 $prepare = $db->prepare($sql);
-                $prepare->execute([]);
-                $teams = $prepare->fetchAll(2);
-                echo json_encode($teams);
-                exit;
+                $prepare->execute([
+                    ':token'     => $token
+                ]);
+                $result = $prepare->fetch();
+                if($result == 0){
+                    $error['error'] = 'wrongtoken';
+                    echo json_encode($error);
+                    exit;
+                }
+                else if(isset($result['id'])) {
+                    $sql = "SELECT * FROM teams";
+                    $prepare = $db->prepare($sql);
+                    $prepare->execute([]);
+                    $teams = $prepare->fetchAll(2);
+                    echo json_encode($teams);
+                    exit;
+                }
             }
         }
     } 
@@ -62,7 +64,7 @@ else{
 <p>als je een admin ben mag je naar deze pagina <a href='admin.php'>admin pagina!</a></p>
 
 <?php
-if (!isset($_SESSION)){
+if (isset($_SESSION)){
     echo "je kan <a href='create.php'>hier</a> een team aanmaken";
 }
 echo '</div>';
