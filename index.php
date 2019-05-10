@@ -1,39 +1,21 @@
 <?php
-require 'header.php';
-if($_SERVER['REQUEST_METHOD'] == 'GET'){
-    if(!empty($_GET['url'])){
-        if($_GET['url'] == 'matches'){
-            if(isset($_GET['token'])){
-                header('Content-Type: application/json');
-                $token = $_GET['token'];
-                if(empty($token)){
-                    $error['error'] = 'notoken';
-                    echo json_encode($error);
-                    exit;
-                }
-                $sql = "SELECT * FROM tokens WHERE token = :token";
+if($_SERVER['REQUEST_METHOD'] == 'GET'){  
+    if(empty($_GET['request'])){
+        
+    }
+    else if($_GET['request'] == 'matches'){        
+            require 'config.php';
+            header('Content-Type: application/json');           
+                $sql = "SELECT * FROM teams";
                 $prepare = $db->prepare($sql);
-                $prepare->execute([
-                    ':token'     => $token
-                ]);
-                $result = $prepare->fetch();
-                if($result == 0){
-                    $error['error'] = 'wrongtoken';
-                    echo json_encode($error);
-                    exit;
-                }
-                else if(isset($result['id'])) {
-                    $sql = "SELECT * FROM teams";
-                    $prepare = $db->prepare($sql);
-                    $prepare->execute([]);
-                    $teams = $prepare->fetchAll(2);
-                    echo json_encode($teams);
-                    exit;
-                }
-            }
-        }
+                $prepare->execute([]);
+                $teams = $prepare->fetchAll(2);
+                echo json_encode($teams);
+                exit;                    
     } 
 }
+require 'header.php';
+
 echo "<div class='index'>";
 echo "<div class='indextext'>";
 
