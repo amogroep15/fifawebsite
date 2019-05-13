@@ -43,8 +43,8 @@ else{
 ?>
 
 <h1>Welkom bij Fifabet</h1>
-<p>als je een admin ben mag je naar deze pagina <a class='buttons' href='admin.php'>admin pagina!</a></p>
-<p></p>
+<p>als je een admin ben mag je naar deze pagina <a class='buttons' href='admin.php'>klik hier!</a></p>
+<p>wat is fifabet? Fifabet is een gemakkelijke site waar je je eigen teams en speleres kan samenstellen en daarmee aan toernooien mee kan doen</p>
 <p>Alle teams <a class='buttons' href='teams.php'>bekijken</a><p>
 
 <?php
