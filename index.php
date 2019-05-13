@@ -34,21 +34,22 @@ if(isset($_SESSION['id'])){
     echo "<form action='loginController.php' method='post'>,
     <input type='hidden' name='type' value='logout'>
     <input type='submit' value='afmelden'>
-    <a href='create.php'>Team aanmaken</a>";
+    <a class='buttons' href='create.php'>Team aanmaken</a>";
     
 }
 else{
-    echo "Je bent niet ingelogd <a href='login.php'>Login</a> of <a href='register.php'>Register</a>";
+    echo "Je bent momenteel niet ingelogd <a class='buttons' href='login.php'>Login</a> of <a class='buttons' href='register.php'>Register</a>";
 }
 ?>
 
-<h1>Dit is een index</h1>
-<p>als je een admin ben mag je naar deze pagina <a href='admin.php'>admin pagina!</a></p>
-<p>Alle teams <a href='teams.php'>bekijken</a><p>
+<h1>Welkom bij Fifabet</h1>
+<p>als je een admin ben mag je naar deze pagina <a class='buttons' href='admin.php'>admin pagina!</a></p>
+<p></p>
+<p>Alle teams <a class='buttons' href='teams.php'>bekijken</a><p>
 
 <?php
 if (isset($_SESSION)){
-    echo "je kan <a href='create.php'>hier</a> een team aanmaken";
+    echo "je kan <a class='buttons' href='create.php'>hier</a> een team aanmaken";
 }
 echo '</div>';
 echo '</div>';
