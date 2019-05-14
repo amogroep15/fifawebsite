@@ -18,17 +18,18 @@ foreach ($teams as $team){
 }
 if(isset( $_SESSION['id'])){
     $creator = $_SESSION['id'];
-};
-$sql = "SELECT * from teams WHERE creator = '$creator'";
-$query = $db->query($sql);
-$teams = $query->fetchAll(2);
-echo '<h2>Mijn teams</h2>';
-foreach($teams as $team){
-    echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
-    echo '</br>';
-    echo '<a href="edit.php?id='.$team['id'].'">wijzig team</a>';
-    echo '</br>';
+    $sql = "SELECT * from teams WHERE creator = '$creator'";
+    $query = $db->query($sql);
+    $teams = $query->fetchAll(2);
+    echo '<h2>Mijn teams</h2>';
+    foreach($teams as $team){
+        echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
+        echo '</br>';
+        echo '<a href="edit.php?id='.$team['id'].'">wijzig team</a>';
+        echo '</br>';
 }
+};
+
 
 ?>
 
