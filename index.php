@@ -37,7 +37,7 @@ if(isset($_SESSION['id'])){
 
 }
 else{
-    echo "Je bent momenteel niet ingelogd <a class='buttons' href='login.php'>Login</a> of <a class='buttons' href='register.php'>Register</a>";
+    echo "<p class='loginenregister'>Je bent momenteel niet ingelogd <a class='buttons' href='login.php'>Login</a> of <a class='buttons' href='register.php'>Register</a></p>";
 }
 ?>
 
