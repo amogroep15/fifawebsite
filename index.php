@@ -31,9 +31,9 @@ if(isset ($_GET['success'])) {
     }
 }
 if(isset($_SESSION['id'])){
-    echo "<form action='loginController.php' method='post'>,
+    echo "<form action='loginController.php' method='post'>
     <input type='hidden' name='type' value='logout'>
-    <input type='submit' value='afmelden'>
+    <input class='afmeldbutton' type='submit' value='afmelden'>
     <a class='buttons' href='create.php'>Team aanmaken</a>";
     
 }
