@@ -33,18 +33,17 @@ if(isset ($_GET['success'])) {
 if(isset($_SESSION['id'])){
     echo "<form action='loginController.php' method='post'>
     <input type='hidden' name='type' value='logout'>
-    <input class='afmeldbutton' type='submit' value='afmelden'>
-    <a class='buttons' href='create.php'>Team aanmaken</a>";
-    
+    <input class='afmeldbutton' type='submit' value='afmelden'>";
+
 }
 else{
     echo "Je bent momenteel niet ingelogd <a class='buttons' href='login.php'>Login</a> of <a class='buttons' href='register.php'>Register</a>";
 }
 ?>
 
-<h1>Welkom bij Fifabet</h1>
+<h1 class="welkom">Welkom bij Fifabet</h1>
 <p class="admintext">als je een admin ben mag je naar deze pagina <a class='buttons' href='admin.php'>klik hier!</a></p>
-<p>wat is fifabet? Fifabet is een gemakkelijke site waar je je eigen teams en spelers kan samenstellen en daarmee aan een halve competitie mee kan doen en vervolgens met onze eigen applicatie op wedstrijden kan gokken en goud geld verdienen! (Letop! je speelt met fictief geld en alle winsten worden dus niet uitbetaald)</p>
+<p class="hometext">wat is fifabet? Fifabet is een gemakkelijke site waar je je eigen teams en spelers kan samenstellen en daarmee aan een halve competitie mee kan doen en vervolgens met onze eigen applicatie op wedstrijden kan gokken en goud geld verdienen! (Letop! je speelt met fictief geld en alle winsten worden dus niet uitbetaald)</p>
 <p>Alle teams <a class='buttons' href='teams.php'>bekijken</a><p>
 
 <?php
