@@ -5,22 +5,22 @@ require 'header.php';
 if(isset ($_GET['error'])){
 
     if($_GET['error'] == 'charcheck') {
-        echo "<p class='message' >Je moet minimaal 1 hoofdletter en minimaal 1 speciale letter in je wachtwoord hebben!</p>";
+        echo "<script> alert('Je moet minimaal 1 hoofdletter en minimaal 1 speciale letter in je wachtwoord hebben!')</script>";
     }
     if($_GET['error'] == 'pwdlength') {
-        echo "<p class='message' > Wachtwoord moet minimaal 7 tekens hebben!</p>";
+        echo "<script> alert('Wachtwoord moet minimaal 7 tekens hebben!')</script>";
     }
     if($_GET['error'] == 'pwdmatch') {
-        echo "<p class='message' >Wachtwoord is niet hetzelfde!</p>";
+        echo "<script> alert('Wachtwoord is niet hetzelfde!')</script>";
     }
     if($_GET['error'] == 'invalidemail') {
-        echo "<p class=\'message\' >Onjuist emailadres!</p>";
+        echo "<script> alert('Onjuist emailadres!')</script>";
     }
     if($_GET['error'] == 'emailexists') {
-        echo "<p class='message' >Er bestaat al een account op dat emailadres!</p>";
+        echo "<script> alert('Er bestaat al een account op dat emailadres!')</script>";
     }
     if($_GET['error'] == 'tos') {
-        echo "<p class='message' >Je moet akkoord gaan met de algemene voorwaarden!</p>";
+        echo "<script> alert('Je moet akkoord gaan met de algemene voorwaarden!')</script>";
     }
     echo '</p>';
 }

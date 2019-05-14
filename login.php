@@ -1,4 +1,15 @@
-<?php require 'header.php'; ?>
+<?php require 'header.php';
+
+if(isset ($_GET['error'])) {
+    if($_GET['error'] == 'unknownemail') {
+        echo "<script> alert('verkeerde email')</script>";
+    }
+    if($_GET['error'] == 'incorrectpassword') {
+        echo "<script> alert('verkeerde wachtwoord')</script>";
+    }
+}
+
+?>
 <div class="login">
     <div class="form">
         <form action="loginController.php" method="post">

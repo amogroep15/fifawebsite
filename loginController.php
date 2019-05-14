@@ -85,7 +85,7 @@ if ($_POST['type'] === 'login'){
     }
 
     else{
-       header('location: index.php?error=incorrectpassword');
+       header('location: login.php?error=incorrectpassword');
        exit();
     }
 
@@ -131,7 +131,7 @@ if ($_POST['type'] === 'create'){
 
     }
     else {
-        header('Location: index.php?error=nologin');
+        header('Location: teams.php?error=nologin');
         exit();
     }
     $creator = $_SESSION['id'];
@@ -307,6 +307,6 @@ if ($_POST['type'] === 'edit'){
         ':p16' => $p16,
         ':id' => $id
     ]);
-    header('Location: index.php?success=edit');
+    header('Location: teams.php?success=edit');
     exit();
 }

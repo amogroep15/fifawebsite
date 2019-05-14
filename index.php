@@ -21,13 +21,13 @@ echo "<div class='indextext'>";
 
 if(isset ($_GET['success'])) {
     if($_GET['success'] == 'register') {
-        echo "<p class='message' style='color: green;'>Succesvol geregistreerd!</p>";
+        echo "<script> alert('succesvol geregisteerd!')</script>";
     }
     if($_GET['success'] == 'login') {
-        echo "<p class='message' style='color: green;'>Succesvol ingelogd!</p>";
+        echo "<script> alert('succesvol ingelogt!')</script>";
     }
     if($_GET['success'] == 'logout') {
-        echo "<p class='message' style='color: green;'>Succesvol uitgelogd! </p>";
+        echo "<script> alert('succesvol uitgelogt!')</script>";
     }
 }
 if(isset($_SESSION['id'])){
