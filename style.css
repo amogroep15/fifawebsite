@@ -28,7 +28,7 @@ header {
 
 h1{
     padding: 10px;
-    margin: 0;
+    margin: 0px;
     font-size: 4em;
 }
 
@@ -204,4 +204,13 @@ h1{
     grid-row-gap: 10px;
     margin: 85px auto;
     padding: 15px;
+}
+
+.hometext {
+    max-width: 485px;
+    margin: 0 auto;
+}
+
+.welkom {
+    margin: 15px;
 }
