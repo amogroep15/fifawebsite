@@ -33,8 +33,8 @@ if($team == 0){
 
 ?>
 
-<form action="loginController.php" method="POST">
-        <input type="hidden" name="type" value="create">
+<form action="loginController.php?id=<?=$id?>" method="POST">
+        <input type="hidden" name="type" value="edit">
         <p>Team naam*</p><input type="text" name="name" value="<?=$team['name']?>">
         <p>Speler 1*</p><input type="text" name="p1" value="<?=$team['player1']?>">
         <p>Speler 2*</p><input type="text" name="p2" value="<?=$team['player2']?>">

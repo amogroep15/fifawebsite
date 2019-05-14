@@ -204,3 +204,109 @@ if ($_POST['type'] === 'create'){
     header('Location: index.php?success=create');
     exit();
 }
+if ($_POST['type'] === 'edit'){
+    if(isset($_SESSION)){
+
+    }
+    else {
+        header('Location: index.php?error=nologin');
+        exit();
+    }
+    if(isset($_GET['id']))
+    {
+        $id = $_GET['id'];
+    }
+    else{
+        header('Location: teams.php?error=noid');
+        exit();
+    }
+    $creator = $_SESSION['id'];
+    $name = trim($_POST['name']);
+    $p1 = trim($_POST['p1']);
+    $p2 = trim($_POST['p2']);
+    $p3 = trim($_POST['p3']);
+    $p4 = trim($_POST['p4']);
+    $p5 = trim($_POST['p5']);
+    $p6 = trim($_POST['p6']);
+    $p7 = trim($_POST['p7']);
+    $p8 = trim($_POST['p8']);
+    $p9 = trim($_POST['p9']);
+    $p10 = trim($_POST['p10']);
+    $p11 = trim($_POST['p11']);
+    $p12 = trim($_POST['p12']);
+    $p13 = trim($_POST['p13']);
+    $p14 = trim($_POST['p14']);
+    $p15 = trim($_POST['p15']);
+    $p16 = trim($_POST['p16']);
+    
+    $sql = "SELECT * FROM teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id'     => $id
+    ]);
+    $result = $prepare->fetch();
+    
+    if($result == 0){
+        header('Location: teams.php?error=teamnotexist');
+        exit();
+    }
+    if($result['creator'] != $creator)
+    {
+        header('Location: teams.php?error=nopermission');
+        exit();
+    }
+
+    if(empty($name) || empty($creator) || empty($p1) || empty($p2) || empty($p3)){
+        header('Location: create.php?error=missingplayers');
+        exit();
+    }
+
+    if(strlen($name) > 32 || strlen($p1) > 32 || strlen($p2) > 32 || strlen($p3) > 32 || strlen($p4) > 32 || strlen($p5) > 32 || strlen($p6) > 32 || strlen($p7) > 32 || strlen($p8) > 32 || strlen($p9) > 32 || strlen($p10) > 32 || strlen($p11) > 32 || strlen($p12) > 32 || strlen($p13) > 32 || strlen($p14) > 32 || strlen($p15) > 32 || strlen($p16) > 32){
+        header('Location: create.php?error=charoverflow');
+        exit();
+    }
+
+    $sql = "UPDATE teams SET 
+        name = :name,
+        player1 = :p1,
+        player2 = :p2,
+        player3 = :p3,
+        player4 = :p4,
+        player5 = :p5,
+        player6 = :p6,
+        player7 = :p7,
+        player8 = :p8,
+        player9 = :p9,
+        player10 = :p10,
+        player11 = :p11,
+        player12 = :p12,
+        player13 = :p13,
+        player14 = :p14,
+        player15 = :p15,
+        player16 = :p16
+        WHERE id = :id   
+        ";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':name' => $name,
+        ':p1' => $p1,
+        ':p2' => $p2,
+        ':p3' => $p3,
+        ':p4' => $p4,
+        ':p5' => $p5,
+        ':p6' => $p6,
+        ':p7' => $p7,
+        ':p8' => $p8,
+        ':p9' => $p9,
+        ':p10' => $p10,
+        ':p11' => $p11,
+        ':p12' => $p12,
+        ':p13' => $p13,
+        ':p14' => $p14,
+        ':p15' => $p15,
+        ':p16' => $p16,
+        ':id' => $id
+    ]);
+    header('Location: index.php?success=edit');
+    exit();
+}
