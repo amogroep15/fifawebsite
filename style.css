@@ -177,3 +177,13 @@ h1{
     background-color: #32CD32;
     border-radius: 30%;
 }
+
+.afmeldbutton {
+    text-decoration: none;
+    color: white;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #32CD32;
+    border-radius: 30%;
+}

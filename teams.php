@@ -16,8 +16,10 @@ foreach ($teams as $team){
     echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
     echo '</br>';
 }
-$creator = $_SESSION['id'];
-$sql = "SELECT * from teams WHERE creator = $creator";
+if(isset( $_SESSION['id'])){
+    $creator = $_SESSION['id'];
+};
+$sql = "SELECT * from teams WHERE creator = '$creator'";
 $query = $db->query($sql);
 $teams = $query->fetchAll(2);
 echo '<h2>Mijn teams</h2>';
