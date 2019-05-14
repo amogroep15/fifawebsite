@@ -15,7 +15,7 @@ echo '<h1>Teams overzicht</h1>';
 foreach ($teams as $team){
     echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
     echo '</br>';
-    if($_SESSION['admin']){
+    if(isset($_SESSION['admin'])){
         echo '<form action="loginController.php?id='.$team['id'].'" method="POST">';
         echo '<input type="hidden" name="type" value="delete">';
         echo '<input type="submit" value="Verwijder team">';
@@ -32,7 +32,7 @@ if(isset( $_SESSION['id'])){
     echo '<h2>Mijn teams</h2>';
     foreach($teams as $team){
         echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
-        if($_SESSION['admin']){
+        if(isset($_SESSION['admin'])){
         echo '<form action="loginController.php?id='.$team['id'].'" method="POST">';
         echo '<input type="hidden" name="type" value="delete">';
         echo '<input type="submit" value="Verwijder team">';
