@@ -25,7 +25,7 @@ if(isset ($_GET['error'])) {
                 <input type="password" name="password" id="password">
             </div>
 
-            <input class="loginbutton" type="submit" value="">
+            <input class="loginbutton" type="submit" value="  login  ">
         </form>
     </div>
 </div>

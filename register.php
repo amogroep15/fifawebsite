@@ -50,7 +50,7 @@ if(isset ($_GET['error'])){
                     <input type="password" name="password_confirm" id="password_confirm">
                 </div>
 
-                <input type="submit" value="Register" name="register-submit">
+                <input class="loginbutton" type="submit" value="  Register  " name="register-submit">
     </form>
      </div>
     </div>
