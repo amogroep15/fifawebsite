@@ -32,9 +32,8 @@ if($team == 0){
 }
 
 ?>
-
-<form class="teamedit" action="loginController.php" method="POST">
-        <input type="hidden" name="type" value="create">
+<form class="teamedit" action="loginController.php?id=<?=$id?>" method="POST">
+        <input type="hidden" name="type" value="edit">
         <div>
             <p>Team naam*</p><input type="text" name="name" value="<?=$team['name']?>">
         </div>

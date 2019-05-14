@@ -1,7 +1,7 @@
 <?php
 require 'header.php';
 echo '<div class="create">';
-if(isset($_SESSION)){
+if(isset($_SESSION['id'])){
 
 }
 else {

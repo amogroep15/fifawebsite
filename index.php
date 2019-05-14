@@ -47,7 +47,7 @@ else{
 <p>Alle teams <a class='buttons' href='teams.php'>bekijken</a><p>
 
 <?php
-if (isset($_SESSION)){
+if (isset($_SESSION['id'])){
     echo "je kan <a class='buttons' href='create.php'>hier</a> een team aanmaken";
 }
 echo '</div>';
