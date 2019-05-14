@@ -32,6 +32,11 @@ h1{
     font-size: 4em;
 }
 
+.homebutton {
+    text-decoration: none;
+    color: white;
+}
+
 .loginbutton {
     background:url("imgs/loginknop.png");
     cursor:pointer;
@@ -152,4 +157,23 @@ h1{
     margin: 0 auto;
     padding: 15px;
     margin: 162px;
+}
+
+.teammaker {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 10px;
+    grid-row-gap: 10px;
+    margin: 85px auto;
+    padding: 15px;
+}
+
+.buttons {
+    text-decoration: none;
+    color: white;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #32CD32;
+    border-radius: 30%;
 }

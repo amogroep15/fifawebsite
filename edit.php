@@ -53,3 +53,6 @@ if($team = 0){
         <p>Speler 16</p><input type="text" name="p16">
         <input type="submit">
     </form>
+
+<?php
+require 'footer.php';
