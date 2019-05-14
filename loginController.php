@@ -110,7 +110,7 @@ if ($_POST['type'] === 'delete'){
     
     $id = $_GET['id'];
     if(empty($id)){
-        header('Location: adminTeams.php?error=noid');
+        header('Location: teams.php?error=noid');
         exit();
     }
     $sql = "DELETE from teams WHERE id = :id";
@@ -118,7 +118,7 @@ if ($_POST['type'] === 'delete'){
     $prepare->execute([
         ':id' => $_GET['id']
     ]);
-    header('Location: adminTeams.php?success=delete');
+    header('Location: teams.php?success=delete');
     exit();
 }
 if ($_POST['type'] === 'logout'){

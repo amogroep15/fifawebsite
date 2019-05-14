@@ -159,11 +159,6 @@ h1{
     margin: 162px;
 }
 
-.admintext {
-    position: absolute;
-    top: 100px;
-    right: 150px;
-}
 
 .teammaker {
     display: grid;
