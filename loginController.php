@@ -27,16 +27,22 @@ function emailcheck($db, $email) {
 if ($_POST['type'] === 'register') {
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
-    $password = $_POST['password'];
-    $password_confirm = $_POST['password_confirm'];
+    $password = trim($_POST['password']);
+    $password_confirm = trim($_POST['password_confirm']);
     $emailcheck = filter_var($email, FILTER_VALIDATE_EMAIL);
     if(empty($username)){
         header('location: ../register.php?error=emptyuser');
         exit;
-    } else if(strlen($username) >= 32){
+    } else if(empty($password)){
+        header('location: ../register.php?error=emptypass');
+        exit;
+    } else if(strlen($password) <= 3){
+        header('location: ../register.php?error=pwdlength');
+        exit;
+    } else if(strlen($username) >= 32 || strlen($username) <= 1){
         header('location: ../register.php?error=userlength');
         exit;
-    } else if (pwdCheckUpper($password) == true && pwdCheckSpecial($password) == false){
+    } else if (pwdCheckUpper($password) == true && pwdCheckSpecial($password) == true){
         header('location: ../register.php?error=charcheck');
         exit;
     } else if ($password_confirm != $password){
@@ -57,7 +63,6 @@ if ($_POST['type'] === 'register') {
         ':email'     => $email,
         ':password'  => $hashedpwd
     ]);
-    //kas heeft dit gemaakt
     header('location: ../index.php?success=register');
     exit;
 }
