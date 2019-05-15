@@ -41,7 +41,7 @@ else{
 }
 ?>
 
-<h1 class="welkom">Welkom bij Fifabet</h1>
+<h2 id="welkom" class="welkom">Welkom bij Fifabet</h2>
 <p class="hometext">wat is fifabet? Fifabet is een gemakkelijke site waar je je eigen teams en spelers kan samenstellen en daarmee aan een halve competitie mee kan doen en vervolgens met onze eigen applicatie op wedstrijden kan gokken en goud geld verdienen! (Letop! je speelt met fictief geld en alle winsten worden dus niet uitbetaald)</p>
 <p>Alle teams <a class='buttons' href='teams.php'>bekijken</a><p>
 

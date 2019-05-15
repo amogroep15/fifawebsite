@@ -21,6 +21,6 @@ require 'config.php';
     <title>FifaBet</title>
 </head>
 <header>
-    <h1><a class="homebutton" href="index.php">FifaBet</a></h1>
+    <h1><a class="homebutton" id="a1" href="index.php">FifaBet</a></h1>
 </header>
 <body>
