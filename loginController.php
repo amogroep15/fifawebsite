@@ -2,17 +2,17 @@
 require 'config.php';
 function pwdCheckUpper($string) {
     if(preg_match("/[A-Z]/", $string)===0) {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 
 function pwdCheckSpecial($string) {
     if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $string)=== 0) {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 function emailcheck($db, $email) {
@@ -36,14 +36,14 @@ if ($_POST['type'] === 'register') {
     } else if(empty($password)){
         header('location: ../register.php?error=emptypass');
         exit;
-    } else if(strlen($password) <= 3){
+    } else if(strlen($password) < 4){
         header('location: ../register.php?error=pwdlength');
         exit;
-    } else if(strlen($username) >= 32 || strlen($username) <= 1){
+    } else if(strlen($username) >= 32 || strlen($username) < 2){
         header('location: ../register.php?error=userlength');
         exit;
-    } else if (pwdCheckUpper($password) == true && pwdCheckSpecial($password) == true){
-        header('location: ../register.php?error=charcheck');
+    } else if (pwdCheckUpper($password) == false && pwdCheckSpecial($password) == false){
+        header('location: ../register.php?error=charche+ck');
         exit;
     } else if ($password_confirm != $password){
         header('location: ../register.php?error=pwdmatch');
