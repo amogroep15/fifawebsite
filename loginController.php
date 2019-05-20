@@ -84,9 +84,9 @@ if ($_POST['type'] === 'login'){
     }
     if(password_verify($password, $result['password'])){
         $_SESSION['id'] = $result['id'];
+        $_SESSION['username'] = $result['username'];
         if(isset($result['admin'])){
         $_SESSION['admin'] = $result['admin'];
-        $_SESSION['username'] = $result['username'];
         }
     }
 
