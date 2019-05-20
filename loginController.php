@@ -2,17 +2,17 @@
 require 'config.php';
 function pwdCheckUpper($string) {
     if(preg_match("/[A-Z]/", $string)===0) {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 
 function pwdCheckSpecial($string) {
     if(preg_match('/[\'^£$%&*()}{@#~?><>,|=_+¬-]/', $string)=== 0) {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 function emailcheck($db, $email) {
@@ -27,17 +27,23 @@ function emailcheck($db, $email) {
 if ($_POST['type'] === 'register') {
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
-    $password = $_POST['password'];
-    $password_confirm = $_POST['password_confirm'];
+    $password = trim($_POST['password']);
+    $password_confirm = trim($_POST['password_confirm']);
     $emailcheck = filter_var($email, FILTER_VALIDATE_EMAIL);
     if(empty($username)){
         header('location: ../register.php?error=emptyuser');
         exit;
-    } else if(strlen($username) >= 32){
+    } else if(empty($password)){
+        header('location: ../register.php?error=emptypass');
+        exit;
+    } else if(strlen($password) < 4){
+        header('location: ../register.php?error=pwdlength');
+        exit;
+    } else if(strlen($username) >= 32 || strlen($username) < 2){
         header('location: ../register.php?error=userlength');
         exit;
-    } else if (pwdCheckUpper($password) == true && pwdCheckSpecial($password) == false){
-        header('location: ../register.php?error=charcheck');
+    } else if (pwdCheckUpper($password) == false && pwdCheckSpecial($password) == false){
+        header('location: ../register.php?error=charche+ck');
         exit;
     } else if ($password_confirm != $password){
         header('location: ../register.php?error=pwdmatch');
@@ -57,7 +63,6 @@ if ($_POST['type'] === 'register') {
         ':email'     => $email,
         ':password'  => $hashedpwd
     ]);
-    //kas heeft dit gemaakt
     header('location: ../index.php?success=register');
     exit;
 }

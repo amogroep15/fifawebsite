@@ -3,12 +3,20 @@
 require 'header.php';
 
 if(isset ($_GET['error'])){
-
+    if($_GET['error'] == 'emptyuser') {
+        echo "<script> alert('Je hebt niks ingevuld bij de username!')</script>";
+    }
+    if($_GET['error'] == 'emptypass') {
+        echo "<script> alert('Je hebt niks ingevuld bij het wachtwoord!')</script>";
+    }
     if($_GET['error'] == 'charcheck') {
         echo "<script> alert('Je moet minimaal 1 hoofdletter en minimaal 1 speciale letter in je wachtwoord hebben!')</script>";
     }
     if($_GET['error'] == 'pwdlength') {
-        echo "<script> alert('Wachtwoord moet minimaal 7 tekens hebben!')</script>";
+        echo "<script> alert('Wachtwoord moet minimaal 4 tekens hebben!')</script>";
+    }
+    if($_GET['error'] == 'userlength') {
+        echo "<script> alert('Username moet minimaal 2 tekens hebben!')</script>";
     }
     if($_GET['error'] == 'pwdmatch') {
         echo "<script> alert('Wachtwoord is niet hetzelfde!')</script>";
@@ -18,9 +26,6 @@ if(isset ($_GET['error'])){
     }
     if($_GET['error'] == 'emailexists') {
         echo "<script> alert('Er bestaat al een account op dat emailadres!')</script>";
-    }
-    if($_GET['error'] == 'tos') {
-        echo "<script> alert('Je moet akkoord gaan met de algemene voorwaarden!')</script>";
     }
     echo '</p>';
 }
