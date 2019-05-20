@@ -315,4 +315,29 @@ if ($_POST['type'] === 'edit'){
     ]);
     header('Location: teams.php?success=edit');
     exit();
+
+}
+
+if ($_POST['type'] === 'competition'){
+    if(isset($_SESSION['admin'])){
+        if($_SESSION['admin'] == 1){
+
+        }
+        else {
+            header('Location: index.php?error=noadmin');
+            exit();
+        }
+
+    }
+
+    $sql = "INSERT INTO competition(started) VALUES (:1)";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':1' => true
+
+    ]);
+
+    header('Location: matches.php?success=started');
+    exit();
+
 }
