@@ -38,9 +38,11 @@ document.addEventListener('keydown', function(e) {
 });
 
 function activateCheats() {
-    document.body.style.backgroundImage = "url('images/cheatBackground.png')";
+    document.getElementById('welkom').innerHTML = "Welkom To Konami!";
+    document.getElementById('a1').innerHTML = "Konami";
+    document.getElementById('a1').href = "https://www.konami.com/en/";
 
-    var audio = new Audio('audio/pling.mp3');
+        var audio = new Audio('audio/konami.mp3');
     audio.play();
 
     alert("cheats activated");

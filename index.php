@@ -39,6 +39,9 @@ if(isset($_SESSION['id'])){
 else{
     echo "<p class='loginenregister'>Je bent momenteel niet ingelogd <a class='buttons' href='login.php'>Login</a> of <a class='buttons' href='register.php'>Register</a></p>";
 }
+if (isset($_SESSION['id'])){
+    echo "<p>{$_SESSION['username']}</p>";
+}
 ?>
 
 <h2 id="welkom" class="welkom">Welkom bij Fifabet</h2>

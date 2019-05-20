@@ -81,6 +81,7 @@ if ($_POST['type'] === 'login'){
         $_SESSION['id'] = $result['id'];
         if(isset($result['admin'])){
         $_SESSION['admin'] = $result['admin'];
+        $_SESSION['username'] = $result['username'];
         }
     }
 
