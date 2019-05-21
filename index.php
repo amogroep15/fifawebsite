@@ -5,7 +5,8 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     }
     else if($_GET['request'] == 'matches'){        
         if(isset($_GET['key'])){
-            if($_GET['key'] == 'A7PD1NSIIWls9WAD14'){
+            $key = $_GET['key'];
+            if($key == 'A7PD1NSIIWls9WAD14'){
                 require 'config.php';
                 header('Content-Type: application/json');           
                     $sql = "SELECT * FROM teams";
