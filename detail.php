@@ -28,20 +28,16 @@ if(empty($team)){
 if(!empty($team['players'])){
     $players = explode(':',$team['players']);
     foreach($players as $player){
-
-    
     $sql = "SELECT * FROM users WHERE id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':id'     => $player
     ]);
     $playername = $prepare->fetch();
-    if(isset($playername['username'])){
-        echo '<p>'. htmlentities($playername['username']). '</p>';
+        if(isset($playername['username'])){
+            echo '<p>'. htmlentities($playername['username']). '</p>';
+        }
     }
-
-}
-
 }
 ?>
 

@@ -261,24 +261,7 @@ if ($_POST['type'] === 'edit'){
         exit();
     }
     $creator = $_SESSION['id'];
-    $name = trim($_POST['name']);
-    $p1 = trim($_POST['p1']);
-    $p2 = trim($_POST['p2']);
-    $p3 = trim($_POST['p3']);
-    $p4 = trim($_POST['p4']);
-    $p5 = trim($_POST['p5']);
-    $p6 = trim($_POST['p6']);
-    $p7 = trim($_POST['p7']);
-    $p8 = trim($_POST['p8']);
-    $p9 = trim($_POST['p9']);
-    $p10 = trim($_POST['p10']);
-    $p11 = trim($_POST['p11']);
-    $p12 = trim($_POST['p12']);
-    $p13 = trim($_POST['p13']);
-    $p14 = trim($_POST['p14']);
-    $p15 = trim($_POST['p15']);
-    $p16 = trim($_POST['p16']);
-    
+    $name = trim($_POST['name']); 
     $sql = "SELECT * FROM teams WHERE id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
@@ -296,62 +279,84 @@ if ($_POST['type'] === 'edit'){
         exit();
     }
 
-    if(empty($name) || empty($creator) || empty($p1) || empty($p2) || empty($p3)){
+    if(empty($name) || empty($creator)){
         header('Location: create.php?error=missingplayers');
         exit();
     }
 
-    if(strlen($name) > 32 || strlen($p1) > 32 || strlen($p2) > 32 || strlen($p3) > 32 || strlen($p4) > 32 || strlen($p5) > 32 || strlen($p6) > 32 || strlen($p7) > 32 || strlen($p8) > 32 || strlen($p9) > 32 || strlen($p10) > 32 || strlen($p11) > 32 || strlen($p12) > 32 || strlen($p13) > 32 || strlen($p14) > 32 || strlen($p15) > 32 || strlen($p16) > 32){
+    if(strlen($name) > 32){
         header('Location: create.php?error=charoverflow');
         exit();
     }
 
     $sql = "UPDATE teams SET 
-        name = :name,
-        player1 = :p1,
-        player2 = :p2,
-        player3 = :p3,
-        player4 = :p4,
-        player5 = :p5,
-        player6 = :p6,
-        player7 = :p7,
-        player8 = :p8,
-        player9 = :p9,
-        player10 = :p10,
-        player11 = :p11,
-        player12 = :p12,
-        player13 = :p13,
-        player14 = :p14,
-        player15 = :p15,
-        player16 = :p16
+        name = :name
         WHERE id = :id   
         ";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':name' => $name,
-        ':p1' => $p1,
-        ':p2' => $p2,
-        ':p3' => $p3,
-        ':p4' => $p4,
-        ':p5' => $p5,
-        ':p6' => $p6,
-        ':p7' => $p7,
-        ':p8' => $p8,
-        ':p9' => $p9,
-        ':p10' => $p10,
-        ':p11' => $p11,
-        ':p12' => $p12,
-        ':p13' => $p13,
-        ':p14' => $p14,
-        ':p15' => $p15,
-        ':p16' => $p16,
         ':id' => $id
     ]);
-    header('Location: teams.php?success=edit');
+    header('Location: edit.php?id='.$id.'&success=edit');
     exit();
 
 }
 
+if ($_POST['type'] === 'deleteplayer'){
+    if(isset($_SESSION)){
+
+    }
+    else {
+        header('Location: index.php?error=nologin');
+        exit();
+    }
+    if(!isset($_GET['id']) || empty($_GET['id']) || !isset($_GET['teamid']) || empty($_GET['teamid'])){
+        header('location: index.php?error=noid');
+        exit;
+    }
+
+    $id = $_GET['id'];
+    $teamid = $_GET['teamid'];
+    //pak selecteer eerst alle spelers van de team
+    //explode het
+    //verwijder de id van de persoon die weg moet
+    //implode het
+    //update in database
+    $sql = "SELECT * FROM teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id'     => $teamid
+    ]);
+    $result = $prepare->fetch();
+    
+    if($result['creator'] !== $_SESSION['id']){
+        if($_SESSION['admin']){
+
+        }
+        else{
+            header('location: teams.php?error=nopermission');
+            exit;
+        }
+    }
+    $players = explode(":", $result['players']);
+    $key = array_search($id, $players);
+    if(isset($players[$key])){
+        unset($players[$key]);
+    }
+    $players = implode(":", $players);
+    $sql = "UPDATE teams SET 
+        players = :players
+        WHERE id = :id   
+        ";
+   $prepare = $db->prepare($sql);
+   $prepare->execute([
+       ':players' => $players,
+       ':id' => $teamid
+   ]);
+   header('location: edit.php?id='.$teamid.'success=deleteplayer');
+   exit;
+}
 if ($_POST['type'] === 'competition'){
     if(isset($_SESSION['admin'])){
         if($_SESSION['admin'] == 1){
@@ -373,5 +378,5 @@ if ($_POST['type'] === 'competition'){
 
     header('Location: matches.php?success=started');
     exit();
-
+    
 }
