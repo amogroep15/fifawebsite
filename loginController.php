@@ -133,7 +133,7 @@ if ($_POST['type'] === 'logout'){
 }
 
 if ($_POST['type'] === 'create'){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['id'])){
 
     }
     else {
@@ -245,7 +245,7 @@ if ($_POST['type'] === 'join'){
     exit();
 }
 if ($_POST['type'] === 'edit'){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['id'])){
 
     }
     else {
@@ -307,7 +307,7 @@ if ($_POST['type'] === 'edit'){
 }
 
 if ($_POST['type'] === 'deleteplayer'){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['id'])){
 
     }
     else {
