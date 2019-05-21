@@ -4,53 +4,60 @@ if(isset($_SESSION)){
 
 }
 else {
+    echo "<script> alert('U bent niet inxgelogt!')</script>";
     header('Location: index.php?error=nologin');
     exit();
 }
 echo '<div class="teams">';
+echo '<h2>Teams overzicht</h2>';
+echo '<div class="teamslist">';
 $sql = "SELECT * from teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(2);
-echo '<h1>Teams overzicht</h1>';
+
+
 foreach ($teams as $team){
     echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
-    echo '</br>';
     echo '<form action="loginController.php?id='.$team['id'].'" method="POST">';
     echo '<input type="hidden" name="type" value="join">';
-    echo '<input type="submit" value="Join team">';
+    echo '<input class="buttons" type="submit" value="Join team">';
     echo '</form>';
     if(isset($_SESSION['admin'])){
         echo '<form action="loginController.php?id='.$team['id'].'" method="POST">';
         echo '<input type="hidden" name="type" value="delete">';
-        echo '<input type="submit" value="Verwijder team">';
+        echo '<input class="buttonsr" type="submit" value="Verwijder team">';
         echo '</form>';
         
-        echo '<a href="edit.php?id='.$team['id'].'">wijzig team</a>';
+        echo '<a  class="buttonsb" href="edit.php?id='.$team['id'].'">wijzig team</a>';
     }
     
 }
+
+echo '</div>';
+echo '<h2>Mijn teams</h2>';
+echo '<div class="myteams">';
 if(isset( $_SESSION['id'])){
     $creator = $_SESSION['id'];
     $sql = "SELECT * from teams WHERE creator = '$creator'";
     $query = $db->query($sql);
     $teams = $query->fetchAll(2);
-    echo '<h2>Mijn teams</h2>';
+
+
     foreach($teams as $team){
         echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
         if(isset($_SESSION['admin'])){
         echo '<form action="loginController.php?id='.$team['id'].'" method="POST">';
         echo '<input type="hidden" name="type" value="delete">';
-        echo '<input type="submit" value="Verwijder team">';
+        echo '<input class="buttonsr" type="submit" value="Verwijder team">';
         echo '</form>';
         }
-        echo '<a href="edit.php?id='.$team['id'].'">wijzig team</a>';
-        echo '</br>';
+        echo '<a class="buttonsb" href="edit.php?id='.$team['id'].'">wijzig team</a>';
 }
 };
 
-
+echo '</div>';
+echo '</div>';
+require 'footer.php';
 ?>
 
 <?php
-echo '</div>';
-require 'footer.php';

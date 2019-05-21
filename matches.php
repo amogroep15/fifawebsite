@@ -48,6 +48,7 @@ echo '<tr>
 <th></th>
 <th>Uit Team</th>
 <th>Speeltijd</th>
+<th>Veld</th>
 </tr>';
 for ($i = 0; $i < $arrLength; $i++) {
     for ($j = 0; $j < count($teamsArray); $j++) {

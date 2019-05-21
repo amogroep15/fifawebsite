@@ -190,6 +190,28 @@ h1{
     cursor: pointer;
 }
 
+.buttonsr {
+    text-decoration: none;
+    color: white;
+    border: red;
+    border-style: solid;
+    border-width: 5px;
+    background-color: red;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.buttonsb {
+    text-decoration: none;
+    color: white;
+    border: blue;
+    border-style: solid;
+    border-width: 5px;
+    background-color: blue;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
 .afmeldbutton {
     text-decoration: none;
     color: white;
@@ -293,4 +315,22 @@ td, th {
 
 .loading {
 
+}
+
+.teamslist {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    width: 600px;
+    column-gap: 0px;
+    padding: 5px;
+    margin: 10px auto
+}
+
+.myteams {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 600px;
+    column-gap: 0px;
+    padding: 5px;
+    margin: 10px auto
 }
