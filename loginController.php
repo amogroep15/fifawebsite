@@ -352,6 +352,44 @@ if ($_POST['type'] === 'edit'){
 
 }
 
+if ($_POST['type'] === 'deleteplayer'){
+    if(!isset($_GET['id']) || empty($_GET['id']) || !isset($_GET['teamid']) || empty($_GET['teamid'])){
+        header('location: index.php?error=noid');
+        exit;
+    }
+
+    $id = $_GET['id'];
+    $teamid = $_GET['teamid'];
+    //pak selecteer eerst alle spelers van de team
+    //explode het
+    //verwijder de id van de persoon die weg moet
+    //implode het
+    //update in database
+    $sql = "SELECT * FROM teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id'     => $teamid
+    ]);
+    $result = $prepare->fetch();
+
+    $players = explode(":", $result['players']);
+    $key = array_search($id, $players);
+    if(isset($players[$key])){
+        unset($players[$key]);
+    }
+    $players = implode(":", $players);
+    $sql = "UPDATE teams SET 
+        players = :players
+        WHERE id = :id   
+        ";
+   $prepare = $db->prepare($sql);
+   $prepare->execute([
+       ':players' => $players,
+       ':id' => $teamid
+   ]);
+   header('location: edit.php?id='.$teamid.'success=deleteplayer');
+   exit;
+}
 if ($_POST['type'] === 'competition'){
     if(isset($_SESSION['admin'])){
         if($_SESSION['admin'] == 1){
@@ -373,5 +411,5 @@ if ($_POST['type'] === 'competition'){
 
     header('Location: matches.php?success=started');
     exit();
-
+    
 }
