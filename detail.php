@@ -20,10 +20,11 @@ if(empty($team)){
 }
 
 ?>
-<main>
+<main class="index">
 
 <h2><?=$team['name']?></h2>
 
+<div class="teamplayerlist">
 <h3>players:</h3>
 
 <?php
@@ -42,9 +43,9 @@ if(!empty($team['players'])){
     }
 }
 ?>
-
+</div>
 </main>
 
-<?
+<?php
 
 require 'footer.php';

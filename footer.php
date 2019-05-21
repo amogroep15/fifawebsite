@@ -11,7 +11,7 @@
 </footer>
 </body>
 <script>
-    // a key map of allowed keys
+    // lijst van knoppen die goedgekeurd worden
     var allowedKeys = {
         37: 'left',
         38: 'up',
@@ -21,10 +21,10 @@
         66: 'b'
     };
 
-    // the 'official' Konami Code sequence
+    // officele konami cheat code
     var konamiCode = ['up', 'up', 'down', 'down', 'left', 'right', 'left', 'right', 'b', 'a'];
 
-    // a variable to remember the 'position' the user has reached so far.
+    // een var die de positie onthoudt van waar de gebruiker was gekomen
     var konamiCodePosition = 0;
 
     // add keydown event listener
@@ -60,5 +60,7 @@
 
         alert("cheats activated");
     }
+
+
 </script>
 </html>

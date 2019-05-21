@@ -8,6 +8,17 @@ else {
     header('Location: index.php?error=nologin');
     exit();
 }
+if(isset ($_GET['success'])) {
+    if($_GET['success'] == 'register') {
+        echo "<script> alert('succesvol geregisteerd!')</script>";
+    }
+    if($_GET['success'] == 'login') {
+        echo "<script> alert('succesvol ingelogt!')</script>";
+    }
+    if($_GET['success'] == 'logout') {
+        echo "<script> alert('succesvol uitgelogt!')</script>";
+    }
+}
 echo '<div class="teams">';
 echo '<h2>Teams overzicht</h2>';
 echo '<div class="teamslist">';
