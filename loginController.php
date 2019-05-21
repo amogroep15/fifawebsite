@@ -195,7 +195,7 @@ if ($_POST['type'] === 'create'){
     exit();
 }
 if ($_POST['type'] === 'join'){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['id'])){
 
     }
     else {
