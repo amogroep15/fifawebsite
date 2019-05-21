@@ -273,7 +273,10 @@ if ($_POST['type'] === 'edit'){
         header('Location: teams.php?error=teamnotexist');
         exit();
     }
-    if($result['creator'] != $creator)
+    if(isset($_SESSION['admin'])){
+
+    }
+    else if($result['creator'] != $creator)
     {
         header('Location: teams.php?error=nopermission');
         exit();
