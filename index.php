@@ -4,14 +4,19 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
         
     }
     else if($_GET['request'] == 'matches'){        
-            require 'config.php';
-            header('Content-Type: application/json');           
-                $sql = "SELECT * FROM teams";
-                $prepare = $db->prepare($sql);
-                $prepare->execute([]);
-                $teams = $prepare->fetchAll(2);
-                echo json_encode($teams);
-                exit;                    
+        if(isset($_GET['key'])){
+            $key = $_GET['key'];
+            if($key == 'A7PD1NSIIWls9WAD14'){
+                require 'config.php';
+                header('Content-Type: application/json');           
+                    $sql = "SELECT * FROM teams";
+                    $prepare = $db->prepare($sql);
+                    $prepare->execute([]);
+                    $teams = $prepare->fetchAll(2);
+                    echo json_encode($teams);
+                    exit;
+            }        
+        }         
     } 
 }
 require 'header.php';
