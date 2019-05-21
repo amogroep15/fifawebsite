@@ -241,14 +241,14 @@ h1{
 .matches {
     text-align: center;
     margin: 0 auto;
-    padding: 14px;
+    padding: 1px;
     border-collapse:separate;
     border-spacing:0 7px;
 }
 
 .marginm {
     text-align: center;
-    margin: 70px;
+    margin: 60px;
 }
 
 h2 {
@@ -274,7 +274,7 @@ h2 {
 }
 
 td, th {
-    padding: 11px;
+    padding: 4px;
 }
 
 .mbutton {
