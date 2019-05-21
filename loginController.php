@@ -353,6 +353,13 @@ if ($_POST['type'] === 'edit'){
 }
 
 if ($_POST['type'] === 'deleteplayer'){
+    if(isset($_SESSION)){
+
+    }
+    else {
+        header('Location: index.php?error=nologin');
+        exit();
+    }
     if(!isset($_GET['id']) || empty($_GET['id']) || !isset($_GET['teamid']) || empty($_GET['teamid'])){
         header('location: index.php?error=noid');
         exit;
@@ -371,7 +378,16 @@ if ($_POST['type'] === 'deleteplayer'){
         ':id'     => $teamid
     ]);
     $result = $prepare->fetch();
+    
+    if($result['creator'] !== $_SESSION['id']){
+        if($_SESSION['admin']){
 
+        }
+        else{
+            header('location: teams.php?error=nopermission');
+            exit;
+        }
+    }
     $players = explode(":", $result['players']);
     $key = array_search($id, $players);
     if(isset($players[$key])){
