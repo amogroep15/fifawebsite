@@ -2,6 +2,7 @@
 require 'header.php';
 
 if(!isset($_GET['id']) || empty($_GET['id'])){
+    echo "<script> alert('ID niet gevonden!')</script>";
     header('location: teams.php?error=noid');
     exit();
 }
@@ -13,6 +14,7 @@ $prepare->execute([
 $team = $prepare->fetch();
 
 if(empty($team)){
+    echo "<script> alert('Deze Team bestaat niet meer!')</script>";
     header('Location: teams.php?error=noteam');
     exit();
 }

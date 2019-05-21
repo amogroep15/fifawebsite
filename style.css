@@ -320,6 +320,7 @@ td, th {
 .teamslist {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-gap: 5px;
     width: 600px;
     column-gap: 0px;
     padding: 5px;
@@ -329,8 +330,20 @@ td, th {
 .myteams {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 5px;
     width: 600px;
     column-gap: 0px;
     padding: 5px;
     margin: 10px auto
+}
+
+.teamname {
+    text-decoration: none;
+    color: #000;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
 }

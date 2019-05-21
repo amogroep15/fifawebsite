@@ -17,7 +17,7 @@ $teams = $query->fetchAll(2);
 
 
 foreach ($teams as $team){
-    echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
+    echo '<a class="teamname" href="detail.php?id='.$team['id'].'">'. htmlentities($team['name']). '</a>';
     echo '<form action="loginController.php?id='.$team['id'].'" method="POST">';
     echo '<input type="hidden" name="type" value="join">';
     echo '<input class="buttons" type="submit" value="Join team">';
@@ -44,7 +44,7 @@ if(isset( $_SESSION['id'])){
 
 
     foreach($teams as $team){
-        echo '<a href="detail.php?id='.$team['id'].'">Team: "'. htmlentities($team['name']). '"</a>';
+        echo '<a class="teamname" href="detail.php?id='.$team['id'].'">'. htmlentities($team['name']). '</a>';
         if(isset($_SESSION['admin'])){
         echo '<form action="loginController.php?id='.$team['id'].'" method="POST">';
         echo '<input type="hidden" name="type" value="delete">';
