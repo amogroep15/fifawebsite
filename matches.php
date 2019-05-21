@@ -21,13 +21,27 @@ $sql = "SELECT * from teams";
 $query = $db->query($sql);
 $teams = $query->fetchAll(2);
 shuffle($teams);
-
+$sql = "SELECT * from competition";
+$query = $db->query($sql);
+$status = $query->fetch();
 echo '<div class="matchespage">';
+if(isset($_SESSION['admin'])){
+    if($status['started'] == false){
+        echo '<form action="loginController.php?id=<?=$id?>" method="POST">
+        <input type="hidden" name="type" value="competition">
+        <input type="submit" class="mbutton" value="klik hier om een halve competitie te maken">
+        </form>';
+    }
+    if($status['started'] == true){
+        echo '<form action="loginController.php?id=<?=$id?>" method="POST">
+        <input type="hidden" name="type" value="competitionstop">
+        <input type="submit" class="mbutton" value="klik hier om een halve competitie te eindigen">
+        </form>';
+    }
 
-echo '<form action="loginController.php?id=<?=$id?>" method="POST">
-       <input type="hidden" name="type" value="competition">
-       <input type="submit" class="mbutton" value="klik hier om een halve competitie te maken">
-       </form>';
+}
+
+if($status['started'] == true){
 
 echo '<div class="marginm" >';
 
@@ -74,7 +88,7 @@ for ($i = 0; $i < $arrLength; $i++) {
 echo '</table>';
 echo '</div>';
 echo '</div>';
-
+}
 ?>
 
 

@@ -371,8 +371,9 @@ if ($_POST['type'] === 'competition'){
         }
 
     }
-
-    $sql = "INSERT INTO competition(started) VALUES (:1)";
+    $sql = "UPDATE competition SET 
+    started = :1  
+    ";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':1' => true
@@ -380,6 +381,30 @@ if ($_POST['type'] === 'competition'){
     ]);
 
     header('Location: matches.php?success=started');
+    exit();
+    
+}
+if ($_POST['type'] === 'competitionstop'){
+    if(isset($_SESSION['admin'])){
+        if($_SESSION['admin'] == 1){
+
+        }
+        else {
+            header('Location: index.php?error=noadmin');
+            exit();
+        }
+
+    }
+    $sql = "UPDATE competition SET 
+    started = :1  
+    ";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':1' => false
+
+    ]);
+
+    header('Location: matches.php?success=ended');
     exit();
     
 }
