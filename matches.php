@@ -6,16 +6,7 @@
  * Time: 09:45
  */
 require 'header.php';
-if(isset($_SESSION['admin'])){
-    if($_SESSION['admin'] == 1){
 
-    }
-    else {
-        header('Location: index.php?error=noadmin');
-        exit();
-    }
-
-}
 
 $sql = "SELECT * from teams";
 $query = $db->query($sql);
@@ -28,9 +19,17 @@ echo '<div class="matchespage">';
 if(isset($_SESSION['admin'])){
     if($status['started'] == false){
         echo '<form action="loginController.php?id=<?=$id?>" method="POST">
-        <input type="hidden" name="type" value="competition">
+        <input type="hidden" name="type" value="competitionstart">
         <input type="submit" class="mbutton" value="klik hier om een halve competitie te maken">
+        <label for="time">Tijdsduur wedstrijd</label>
+        <input type="number" name="time" min="30" max="90" value="90" id="time">
+        <label for="pausetime">Tijd rust</label>
+        <input type="number" name="pausetime" min="0" max"15" value="2" id="pausetime">
+        <label for="timebetween">Tijd tussen wedstrijden</label>
+        <input type="number" name="timebetween" min="1" max"2" value="2" id="timebetween">
+
         </form>';
+
     }
     if($status['started'] == true){
         echo '<form action="loginController.php?id=<?=$id?>" method="POST">

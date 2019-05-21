@@ -360,7 +360,7 @@ if ($_POST['type'] === 'deleteplayer'){
    header('location: edit.php?id='.$teamid.'success=deleteplayer');
    exit;
 }
-if ($_POST['type'] === 'competition'){
+if ($_POST['type'] === 'competitionstart'){
     if(isset($_SESSION['admin'])){
         if($_SESSION['admin'] == 1){
 
@@ -369,14 +369,21 @@ if ($_POST['type'] === 'competition'){
             header('Location: index.php?error=noadmin');
             exit();
         }
+        $time = $_POST['time'];
+        $fields = $_POST['fields'];
+
 
     }
     $sql = "UPDATE competition SET 
-    started = :1  
+        started = :started,
+        playtime = :time,
+        fields = :fields
     ";
     $prepare = $db->prepare($sql);
     $prepare->execute([
-        ':1' => true
+        ':started' => true,
+        ':time' => $time,
+        ':fields' => $fields
 
     ]);
 
