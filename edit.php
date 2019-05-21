@@ -1,19 +1,5 @@
 <?php
 require 'header.php';
-if(isset($_SESSION['admin'])){
-    if($_SESSION['admin'] == 1){
-
-    }
-    else {
-        header('Location: index.php?error=noadmin');
-        exit();
-    }
-
-}
-else {
-    header('Location: index.php?error=noadmin');
-    exit();
-}
 if(empty($_GET['id'])){
     header('Location: index.php?error=wrongpage');
 }
@@ -25,6 +11,24 @@ $prepare->execute([
     ':id'  => $id
 ]);
 $team = $prepare->fetch();
+
+if(isset($_SESSION['id'])){
+    if(isset($_SESSION['admin'])){
+        
+    }
+    else if($_SESSION['id'] == $team['creator']) {
+
+    }
+    else {
+        header('Location: index.php?error=noadmin');
+        exit();
+    }
+
+}
+else {
+    header('Location: index.php?error=nopermission');
+    exit();
+}
 
 
 if($team == 0){
