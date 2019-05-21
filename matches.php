@@ -42,6 +42,13 @@ $arrLength = count($teamsArray);
 $count = 1;
 
 echo '<table class="matches">';
+echo '<tr>
+<th>wedstrijd nummer</th>
+<th>Thuis Team</th>
+<th></th>
+<th>Uit Team</th>
+<th>Speeltijd</th>
+</tr>';
 for ($i = 0; $i < $arrLength; $i++) {
     for ($j = 0; $j < count($teamsArray); $j++) {
         if ($teamsArray[0] !== $teamsArray[$j]) {
@@ -56,6 +63,12 @@ for ($i = 0; $i < $arrLength; $i++) {
     }
     array_shift($teamsArray);
 }
+
+//if(isset ($_GET['success'])) {
+//    if($_GET['success'] == 'started') {
+//        echo "<script> alert('Competitie succesvol aangemaakt!')</script>";
+//    }
+//}
 
 echo '</table>';
 echo '</div>';
