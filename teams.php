@@ -9,14 +9,8 @@ else {
     exit();
 }
 if(isset ($_GET['success'])) {
-    if($_GET['success'] == 'register') {
-        echo "<script> alert('succesvol geregisteerd!')</script>";
-    }
-    if($_GET['success'] == 'login') {
-        echo "<script> alert('succesvol ingelogt!')</script>";
-    }
-    if($_GET['success'] == 'logout') {
-        echo "<script> alert('succesvol uitgelogt!')</script>";
+    if($_GET['success'] == 'delete') {
+        echo "<script> alert('succesvol team verwijderd!')</script>";
     }
 }
 echo '<div class="teams">';

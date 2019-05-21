@@ -38,17 +38,22 @@ if($team == 0){
 
 
 ?>
-<form class="teamedit" action="loginController.php?id=<?=$id?>" method="POST">
-        <input type="hidden" name="type" value="edit">
-        <div>
-            <p>Team naam*</p><input type="text" name="name" value="<?=$team['name']?>">
-        </div>
-
-        <div>
-            <input type="submit">
-        </div>
-</form>
-<div>
+<div class="teamedit">
+    <h2>Team Edit</h2>
+    <div class="editpage">
+    <div class="editteam">
+        <form action="loginController.php?id=<?=$id?>" method="POST">
+            <input type="hidden" name="type" value="edit">
+            <div>
+                <p class="bold">Team naam:</p><input type="text" name="name" value="<?=$team['name']?>">
+            </div>
+            <div>
+                <input style="margin: 4px" class="buttonsb" type="button" value="wijzig team naam">
+                <input style="margin: 4px" id="save" class="buttonsb" type="submit" value="wijzigingen opslaan">
+            </div>
+        </form>
+    </div>
+<div class="removeplayer">
 
 <?php
 if(!empty($team['players'])){
@@ -63,13 +68,16 @@ if(!empty($team['players'])){
         if(isset($playername['username'])){
             echo '<form action="loginController.php?id='.$player.'&teamid='.$team['id'].'" method="POST">';
             echo '<input type="hidden" name="type" value="deleteplayer">';
-            echo '<p>'. htmlentities($playername['username']). '</p>';
-            echo '<input type="submit" value"verwijder speler">';
+            echo '<p class="bold">Players:</p>';
+            echo '<p>'. ucfirst(htmlentities($playername['username'])). '</p>';
+            echo '<input class="buttonsr"  type="submit" value="verwijder speler">';
             echo '</form>';
         }
     }
 }
 ?>
+</div>
+</div>
 </div>
 
 

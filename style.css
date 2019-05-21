@@ -227,12 +227,23 @@ h1{
 }
 
 .teamedit {
+    background-color: white;
+    height: 100%;
+    border: #32CD32;
+    border-style: solid;
+    border-width: 5px;
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+.editpage {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    margin: 85px auto;
-    padding: 15px;
+    grid-template-columns: 1fr ;
+    grid-gap: 5px;
+    width: 600px;
+    column-gap: 0px;
+    padding: 5px;
+    margin: 10px auto
 }
 
 .hometext {
@@ -349,5 +360,15 @@ td, th {
 }
 
 .teamplayerlist {
+    text-align: center;
+}
 
+.bold {
+    font-weight: bold;
+}
+
+#save {
+    position: absolute;
+    top: 100px;
+    right: 145px;
 }

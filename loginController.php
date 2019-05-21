@@ -301,7 +301,7 @@ if ($_POST['type'] === 'edit'){
         ':name' => $name,
         ':id' => $id
     ]);
-    header('Location: edit.php?id='.$id.'&success=edit');
+    header('Location: teams.php?id='.$id.'&success=edit');
     exit();
 
 }
