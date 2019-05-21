@@ -160,12 +160,12 @@ if ($_POST['type'] === 'create'){
     $p16 = trim($_POST['p16']);
 
 
-    if(empty($name) || empty($creator) || empty($p1) || empty($p2) || empty($p3)){
-        header('Location: create.php?error=missingplayers');
+    if(empty($name) || empty($creator)){
+        header('Location: create.php?error=noname');
         exit();
     }
 
-    if(strlen($name) > 32 || strlen($p1) > 32 || strlen($p2) > 32 || strlen($p3) > 32 || strlen($p4) > 32 || strlen($p5) > 32 || strlen($p6) > 32 || strlen($p7) > 32 || strlen($p8) > 32 || strlen($p9) > 32 || strlen($p10) > 32 || strlen($p11) > 32 || strlen($p12) > 32 || strlen($p13) > 32 || strlen($p14) > 32 || strlen($p15) > 32 || strlen($p16) > 32){
+    if(strlen($name) > 32){
         header('Location: create.php?error=charoverflow');
         exit();
     }
@@ -184,30 +184,64 @@ if ($_POST['type'] === 'create'){
         exit();
     }
 
-    $sql = "INSERT INTO teams(name, creator,player1, player2, player3, player4, player5, player6, player7, player8, player9, player10, player11, player12, player13, player14, player15, player16) VALUES (:name, :creator, :p1, :p2, :p3, :p4, :p5, :p6, :p7, :p8, :p9, :p10, :p11, :p12, :p13, :p14, :p15, :p16)";
+    $sql = "INSERT INTO teams(name, creator) VALUES (:name, :creator)";
     $prepare = $db->prepare($sql);
     $prepare->execute([
         ':name' => $name,
-        ':creator' => $creator,
-        ':p1' => $p1,
-        ':p2' => $p2,
-        ':p3' => $p3,
-        ':p4' => $p4,
-        ':p5' => $p5,
-        ':p6' => $p6,
-        ':p7' => $p7,
-        ':p8' => $p8,
-        ':p9' => $p9,
-        ':p10' => $p10,
-        ':p11' => $p11,
-        ':p12' => $p12,
-        ':p13' => $p13,
-        ':p14' => $p14,
-        ':p15' => $p15,
-        ':p16' => $p16
+        ':creator' => $creator,    
     ]);
 
     header('Location: index.php?success=create');
+    exit();
+}
+if ($_POST['type'] === 'join'){
+    if(isset($_SESSION)){
+
+    }
+    else {
+        header('Location: index.php?error=nologin');
+        exit();
+    }
+    if(isset($_GET['id']))
+    {
+        $id = $_GET['id'];
+    }
+    else{
+        header('Location: teams.php?error=noid');
+        exit();
+    }
+    $playerid = $_SESSION['id'];
+
+    $sql = "SELECT * FROM teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id'     => $id
+    ]);
+    $result = $prepare->fetch();
+    if($result == 0){
+        header('Location: teams.php?error=teamnotexist');
+        exit();
+    }
+    $players = array();
+    if(!empty($result['players'])){
+        $players = explode(':', $result['players']);
+    }
+    if(in_array($_SESSION['id'], $players)){
+        header('Location: teams.php?error=alreadyinteam');
+        exit;
+    }
+    array_push($players, $_SESSION['id']);
+    $players = implode(":" , $players);
+    $sql = "UPDATE teams SET 
+        players = :players
+        WHERE id = :id   
+        ";
+   $prepare = $db->prepare($sql);
+   $prepare->execute([
+       ':players' => $players,
+       ':id' => $id
+   ]);
+   header('Location: teams.php?success=join');
     exit();
 }
 if ($_POST['type'] === 'edit'){
