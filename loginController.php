@@ -1,5 +1,9 @@
 <?php
 require 'config.php';
+if(!isset($_POST['type'])){
+    header('Location: index.php');
+    exit;
+}
 function pwdCheckUpper($string) {
     if(preg_match("/[A-Z]/", $string)===0) {
         return false;
@@ -301,8 +305,15 @@ if ($_POST['type'] === 'edit'){
         ':name' => $name,
         ':id' => $id
     ]);
-    header('Location: teams.php?id='.$id.'&success=edit');
-    exit();
+    if (isset($_POST['buttonsave'])) {
+        header('Location: edit.php?id='.$id.'&success=edit');
+        exit();
+    }
+    else{
+        header('Location: teams.php?id='.$id.'&success=edit');
+        exit();
+    }
+
 
 }
 
