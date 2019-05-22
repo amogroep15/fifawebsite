@@ -53,10 +53,10 @@
 
         <div class="footer-icons">
 
-            <a href="#"><img src="imgs/fb.png"></a>
-            <a href="#"><img src="imgs/t.png"></a>
-            <a href="#"><img src="imgs/in.png"></a>
-            <a href="#"><img src="imgs/git.png"></a>
+            <a href="https://www.facebook.com"><img src="imgs/fb.png"></a>
+            <a href="https://twitter.com/?lang=en"><img src="imgs/t.png"></a>
+            <a href="https://www.linkedin.com/"><img src="imgs/in.png"></a>
+            <a href="https://github.com/amogroep15/fifawebsite/graphs/contributors"><img src="imgs/git.png"></a>
 
         </div>
 
