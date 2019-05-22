@@ -62,6 +62,14 @@ require 'config.php';
             }
             ?>
         </li>
+        <li>
+            <?php
+            if (isset($_SESSION['id'])){
+                echo "<a class='nav-link' href='download.php'>Download</a>";
+            }
+
+            ?>
+        </li>
     </ul>
 </header>
 <body>

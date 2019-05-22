@@ -339,6 +339,24 @@ h1{
     margin: 0 auto;
 }
 
+.downloadpage {
+    background-color: white;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
+    max-width: 1260px;
+    margin: 0 auto;
+}
+
+.download {
+    text-align: center;
+    margin: 0 auto;
+    padding: 100px;
+    margin: 0 auto;
+}
+
 .container {
     background-color: white;
     height: 80vh;
