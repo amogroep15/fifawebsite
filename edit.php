@@ -48,7 +48,7 @@ if($team == 0){
                 <p class="bold">Team naam:</p><input type="text" name="name" value="<?=$team['name']?>">
             </div>
             <div>
-                <input style="margin: 4px" class="buttonsb" type="button" value="wijzig team naam">
+                <input style="margin: 4px" class="buttonsb" type="submit" value="wijzig team naam" name="buttonsave">
                 <input style="margin: 4px" id="save" class="buttonsb" type="submit" value="wijzigingen opslaan">
             </div>
         </form>

@@ -1,10 +1,10 @@
 <?php
 require 'header.php';
-if(isset($_SESSION)){
+if(isset($_SESSION['id'])){
 
 }
 else {
-    echo "<script> alert('U bent niet inxgelogt!')</script>";
+    echo "<script> alert('U bent niet ingelogt!')</script>";
     header('Location: index.php?error=nologin');
     exit();
 }

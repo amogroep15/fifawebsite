@@ -1,5 +1,9 @@
 <?php
 require 'config.php';
+if(!isset($_POST['type'])){
+    header('Location: index.php');
+    exit;
+}
 function pwdCheckUpper($string) {
     if(preg_match("/[A-Z]/", $string)===0) {
         return false;
@@ -133,7 +137,7 @@ if ($_POST['type'] === 'logout'){
 }
 
 if ($_POST['type'] === 'create'){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['id'])){
 
     }
     else {
@@ -195,7 +199,7 @@ if ($_POST['type'] === 'create'){
     exit();
 }
 if ($_POST['type'] === 'join'){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['id'])){
 
     }
     else {
@@ -245,7 +249,7 @@ if ($_POST['type'] === 'join'){
     exit();
 }
 if ($_POST['type'] === 'edit'){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['id'])){
 
     }
     else {
@@ -301,13 +305,20 @@ if ($_POST['type'] === 'edit'){
         ':name' => $name,
         ':id' => $id
     ]);
-    header('Location: teams.php?id='.$id.'&success=edit');
-    exit();
+    if (isset($_POST['buttonsave'])) {
+        header('Location: edit.php?id='.$id.'&success=edit');
+        exit();
+    }
+    else{
+        header('Location: teams.php?id='.$id.'&success=edit');
+        exit();
+    }
+
 
 }
 
 if ($_POST['type'] === 'deleteplayer'){
-    if(isset($_SESSION)){
+    if(isset($_SESSION['id'])){
 
     }
     else {

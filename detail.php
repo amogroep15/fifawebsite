@@ -25,7 +25,7 @@ if(empty($team)){
 <h2><?=$team['name']?></h2>
 
 <div class="teamplayerlist">
-<h3>players:</h3>
+<h3>Spelers:</h3>
 
 <?php
 if(!empty($team['players'])){
