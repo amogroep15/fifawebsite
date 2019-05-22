@@ -1,7 +1,8 @@
 body {
-    background-image: url("imgs/bgjpg.jpg");
-    background-repeat: no-repeat;
-    background-size: 100%;
+    /*background-image: url("imgs/bgjpg.jpg");*/
+    /*background-repeat: no-repeat;*/
+    /*background-size: 100%;*/
+    background-color: #98c6ac;
     margin: 0 auto;
     font-family: sans-serif;
 }
@@ -9,27 +10,71 @@ body {
 footer {
     color: white;
     text-align: center;
-    background-color: #003B94;
-    height: 41px;
+    background-color: #00857c;
+    height: 30px;
     padding: 15px;
     position: fixed;
-    left: 0;
     bottom: 0;
+    left: 0;
     width: 100%;
 
 }
 
 header {
     text-align: center;
-    background-color: #003B94;
+    background-color: #00857c;
     color: white;
     height: 90px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+li {
+    float: right;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+ul .nav-link {
+    font-size: 1em;
+    display: block;
+    color: white;
+    text-align: center;
+    background: none;
+    border: none;
+    margin: 0;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+ul .nav-link:hover {
+    background-color: #111;
+    cursor: pointer;
 }
 
 h1{
     padding: 10px;
     margin: 0px;
     font-size: 4em;
+    text-align: left;
 }
 
 .homebutton {
@@ -54,28 +99,29 @@ h1{
 
 .login {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
 }
 .create {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
-    margin-bottom: 70px;
 }
 .form {
     text-align: center;
     margin: 0 auto;
-    padding: 15px;
-    margin: 160px;
+    padding: 100px;
+    margin: 0 auto;
 
 }
 
@@ -92,20 +138,22 @@ h1{
 }
 .index {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
 }
 
 .teams {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
     text-align: center;
@@ -115,7 +163,6 @@ h1{
     text-align: center;
     margin: 0 auto;
     padding: 15px;
-    margin: 120px;
 }
 
 .home {
@@ -127,20 +174,22 @@ h1{
 
 .homepage {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
 }
 
 .container {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
 }
@@ -148,16 +197,16 @@ h1{
 .register {
     text-align: center;
     margin: 0 auto;
-    padding: 15px;
-    margin: 122px;
+    padding: 100px;
 }
 
 .adminpage {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
 }
@@ -171,21 +220,22 @@ h1{
 
 
 .teammaker {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-    margin: 85px auto;
-    padding: 15px;
+    text-align: center;
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.teammaker input {
+    margin: 5px;
 }
 
 .buttons {
     text-decoration: none;
     color: white;
-    border: #32CD32;
+    border: #18f2b2;
     border-style: solid;
     border-width: 5px;
-    background-color: #32CD32;
+    background-color: #18f2b2;
     border-radius: 10px;
     cursor: pointer;
 }
@@ -212,26 +262,24 @@ h1{
     cursor: pointer;
 }
 
-.afmeldbutton {
-    text-decoration: none;
-    color: white;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
-    background-color: #32CD32;
-    border-radius: 10px;
-    position: absolute;
-    top: 30px;
-    right: 35px;
-    cursor: pointer;
-}
+/*.afmeldbutton {*/
+    /*text-decoration: none;*/
+    /*color: white;*/
+    /*border: #18f2b2;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    /*background-color: #18f2b2;*/
+    /*border-radius: 10px;*/
+    /*cursor: pointer;*/
+/*}*/
 
 .teamedit {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
 }
@@ -263,10 +311,11 @@ h1{
 
 .matchespage {
     background-color: white;
-    height: 100%;
-    border: #32CD32;
-    border-style: solid;
-    border-width: 5px;
+    height: 80vh;
+    /*border: #32CD32;*/
+    /*border-style: solid;*/
+    /*border-width: 5px;*/
+    box-shadow: 0px 0px 50px 0px rgba(0,0,0,0.75);
     max-width: 1260px;
     margin: 0 auto;
 }
@@ -288,11 +337,12 @@ h2 {
     text-align: center;
     font-size: 1.5em;
     padding: 20px;
+    margin: 0;
 }
 
 .td1 {
-    border: solid #32CD32;
-    background-color: #32CD32;
+    border: solid #18f2b2;
+    background-color: #18f2b2;
     border-width: 5px;
     border-radius: 10px;
     color: white;
@@ -313,10 +363,10 @@ td, th {
 .mbutton {
     text-decoration: none;
     color: white;
-    border: #32CD32;
+    border: #18f2b2;
     border-style: solid;
     border-width: 5px;
-    background-color: #32CD32;
+    background-color: #18f2b2;
     border-radius: 10px;
     cursor: pointer;
     text-align: center;
@@ -351,7 +401,7 @@ td, th {
 .teamname {
     text-decoration: none;
     color: #000;
-    border: #32CD32;
+    border: #18f2b2;
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;

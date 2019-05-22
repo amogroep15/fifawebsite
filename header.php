@@ -23,5 +23,29 @@ require 'config.php';
 </head>
 <header>
     <h1><a class="homebutton" id="a1" href="index.php">FifaBet</a>   <i class="fas fa-futbol"></i></h1>
+    <ul>
+        <li><a class="active" href="teams.php">Teams</a></li>
+        <li><a href="login.php">Login</a></li>
+        <li><a href="register.php">Register</a></li>
+        <li><a href="index.php">Home</a></li>
+        <li><?php
+        if(isset($_SESSION['id'])){
+            echo "<form action='loginController.php' method='post'>
+                <input type='hidden' name='type' value='logout'>
+                <input class='nav-link' type='submit' value='Afmelden'>
+                </form>";
+
+        }
+        ?>
+        </li>
+        <li>
+            <?php
+            if (isset($_SESSION['id'])){
+                echo "<a class='nav-link' href='create.php'>Maak een Team</a>";
+            }
+
+            ?>
+        </li>
+    </ul>
 </header>
 <body>
