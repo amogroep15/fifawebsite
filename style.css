@@ -7,18 +7,173 @@ body {
     font-family: sans-serif;
 }
 
-footer {
-    color: white;
-    text-align: center;
-    background-color: #00857c;
-    height: 30px;
-    padding: 15px;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
+/*footer {*/
+    /*color: white;*/
+    /*text-align: center;*/
+    /*background-color: #00857c;*/
+    /*height: 30px;*/
+    /*padding: 15px;*/
+    /*position: fixed;*/
+    /*bottom: 0;*/
+    /*left: 0;*/
+    /*width: 100%;*/
 
+/*}*/
+
+.footer-distributed{
+    background-color: #00857c;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    text-align: left;
+    font-size: 16px;
+    padding: 55px 50px;
 }
+
+.footer-distributed .footer-left,
+.footer-distributed .footer-center,
+.footer-distributed .footer-right{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.footer-distributed .footer-left{
+    width: 40%;
+}
+
+.footer-distributed h3{
+    color:  #ffffff;
+    font-size: 36px;
+    margin: 0;
+}
+
+.footer-distributed .footer-links{
+    color:  #ffffff;
+    margin: 20px 0 12px;
+    padding: 0;
+}
+
+.footer-distributed .footer-links a{
+    display:inline-block;
+    line-height: 1.8;
+    text-decoration: none;
+    color:  inherit;
+}
+
+.footer-distributed .footer-company-name{
+    color:  #8f9296;
+    font-size: 14px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-center{
+    width: 35%;
+}
+
+.footer-distributed .footer-center i{
+    background-color:  #33383b;
+    color: #ffffff;
+    font-size: 25px;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 42px;
+    margin: 10px 15px;
+    vertical-align: middle;
+}
+
+.footer-distributed .footer-center i.fa-envelope{
+    font-size: 17px;
+    line-height: 38px;
+}
+
+.footer-distributed .footer-center p{
+    display: inline-block;
+    color: #ffffff;
+    vertical-align: middle;
+    margin:0;
+}
+
+.footer-distributed .footer-center p span{
+    display:block;
+    font-weight: normal;
+    font-size:14px;
+    line-height:2;
+}
+
+.footer-distributed .footer-center p a{
+    color:  white;
+    text-decoration: none;;
+}
+
+.footer-distributed .footer-right{
+    width: 20%;
+}
+
+.footer-distributed .footer-company-about{
+    line-height: 20px;
+    color:  #92999f;
+    font-size: 13px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.footer-distributed .footer-company-about span{
+    display: block;
+    color:  #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.footer-distributed .footer-icons{
+    margin-top: 25px;
+}
+
+.footer-distributed .footer-icons a img{
+    display: inline-block;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    background-color:  #33383b;
+    border-radius: 2px;
+
+    font-size: 20px;
+    color: #ffffff;
+    text-align: center;
+    line-height: 35px;
+
+    margin-right: 3px;
+    margin-bottom: 5px;
+}
+
+.footer-distributed .copy {
+    color: white;
+    padding-top: 30px;
+}
+
+/*@media (max-width: 880px) {*/
+
+    /*.footer-distributed{*/
+        /*font: bold 14px sans-serif;*/
+    /*}*/
+
+    /*.footer-distributed .footer-left,*/
+    /*.footer-distributed .footer-center,*/
+    /*.footer-distributed .footer-right{*/
+        /*display: block;*/
+        /*width: 100%;*/
+        /*margin-bottom: 40px;*/
+        /*text-align: center;*/
+    /*}*/
+
+    /*.footer-distributed .footer-center i{*/
+        /*margin-left: 0;*/
+    /*}*/
+
+/*}*/
 
 header {
     text-align: center;
@@ -33,7 +188,7 @@ header {
 ul {
     list-style-type: none;
     margin: 0;
-    padding: 0;
+    padding: 15px;
     overflow: hidden;
 }
 
@@ -45,12 +200,13 @@ li a {
     display: block;
     color: white;
     text-align: center;
-    padding: 14px 16px;
+    padding: 10px 12px;
     text-decoration: none;
 }
 
 li a:hover {
-    background-color: #111;
+    border: solid #18f2b2;
+    cursor: pointer;
 }
 
 ul .nav-link {
@@ -61,12 +217,12 @@ ul .nav-link {
     background: none;
     border: none;
     margin: 0;
-    padding: 14px 16px;
+    padding: 10px 16px;
     text-decoration: none;
 }
 
 ul .nav-link:hover {
-    background-color: #111;
+    border: solid #18f2b2;
     cursor: pointer;
 }
 
@@ -86,10 +242,10 @@ h1{
 .loginbutton {
     text-decoration: none;
     color: white;
-    border: #32CD32;
+    border: #18f2b2;
     border-style: solid;
     border-width: 5px;
-    background-color: #32CD32;
+    background-color: #18f2b2;
     border-radius: 10px;
     margin: 10px;
     font-size: 1em;
@@ -229,6 +385,18 @@ h1{
     margin: 5px;
 }
 
+.buttons1 {
+    text-decoration: none;
+    color: white;
+    border: #18f2b2;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #18f2b2;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 0.95em;
+}
+
 .buttons {
     text-decoration: none;
     color: white;
@@ -238,28 +406,60 @@ h1{
     background-color: #18f2b2;
     border-radius: 10px;
     cursor: pointer;
+    width: 100px;
+    font-size: 0.95em;
 }
 
 .buttonsr {
     text-decoration: none;
     color: white;
-    border: red;
+    border: #9e1505;
     border-style: solid;
     border-width: 5px;
-    background-color: red;
+    background-color: #9e1505;
     border-radius: 10px;
     cursor: pointer;
+    width: 115px;
+    font-size: 0.92em;
+}
+
+.buttonsr1 {
+    text-decoration: none;
+    color: white;
+    border: #9e1505;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #9e1505;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 130px;
+    font-size: 0.92em;
 }
 
 .buttonsb {
     text-decoration: none;
     color: white;
-    border: blue;
+    border: #19698c;
     border-style: solid;
     border-width: 5px;
-    background-color: blue;
+    background-color: #19698c;
     border-radius: 10px;
     cursor: pointer;
+    width: 100px;
+    font-size: 0.95em;
+}
+
+.buttonsb1 {
+    text-decoration: none;
+    color: white;
+    border: #19698c;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #19698c;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 150px;
+    font-size: 0.95em;
 }
 
 /*.afmeldbutton {*/
@@ -297,10 +497,18 @@ h1{
 .hometext {
     max-width: 485px;
     margin: 30px auto;
+    font-size: 1.2em;
 }
 
 .welkom {
-    margin: 15px;
+    padding: 20px;
+    padding-top: 70px;
+}
+
+.username {
+    position: absolute;
+    top: 100px;
+    left: 170px;
 }
 
 .loginenregister {
