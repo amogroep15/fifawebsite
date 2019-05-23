@@ -35,7 +35,11 @@ if(isset ($_GET['success'])) {
         echo "<script> alert('succesvol uitgelogt!')</script>";
     }
 }
-
+if(isset ($_GET['error'])) {
+    if ($_GET['error'] == 'noentry') {
+        echo "<script> alert('Geen Toegang')</script>";
+    }
+}
 if (isset($_SESSION['id'])){
     echo "<p class='username'>Welkom ".ucfirst(htmlentities($_SESSION['username']))."</p>";
 }

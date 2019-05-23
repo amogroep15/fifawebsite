@@ -7,6 +7,12 @@ if(isset ($_GET['error'])) {
     if($_GET['error'] == 'incorrectpassword') {
         echo "<script> alert('verkeerde wachtwoord')</script>";
     }
+
+}
+
+if (isset($_SESSION['id'])){
+    header("Location: index.php?error=noentry");
+    exit();
 }
 
 ?>
