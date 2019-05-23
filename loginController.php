@@ -29,6 +29,10 @@ function emailcheck($db, $email) {
 }
 
 if ($_POST['type'] === 'register') {
+    if(isset($_SESSION['id'])){
+        header('Location: header.php?error=nopermission');
+        exit;
+    }
     $username = trim($_POST['username']);
     $email = trim($_POST['email']);
     $password = trim($_POST['password']);

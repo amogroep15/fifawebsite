@@ -1,6 +1,10 @@
 <?php
-
 require 'header.php';
+
+if(isset($_SESSION['id'])){
+    header('Location: header.php?error=nopermission');
+    exit;
+}
 
 if(isset ($_GET['error'])){
     if($_GET['error'] == 'emptyuser') {
