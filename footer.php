@@ -9,9 +9,10 @@
 <footer class="footer-distributed">
 
     <div class="footer-left">
-
-        <h3><a class="homebutton" id="a1" href="index.php">FifaBet</a>   <i class="fas fa-futbol"></i></h3>
-
+        <div class="logo">
+            <h3><a class="homebutton" id="a1" href="index.php">FifaBet </a></h3>
+            <img class="logoimg" src="imgs/fbi.svg">
+        </div>
         <p class="footer-links">
             <a href="index.php">Home</a>
             ·
@@ -118,7 +119,8 @@
                 konamiCodePosition = 0;
             }
         } else {
-            konamiCodePosition = 0;
+            konamiCodePosition = 0 ;
+
         }
     });
 
@@ -126,11 +128,12 @@
         document.getElementById('welkom').innerHTML = "Welkom To Konami!";
         document.getElementById('a1').innerHTML = "Konami";
         document.getElementById('a1').href = "https://www.konami.com/en/";
+        document.getElementsByClassName('rotate-diagonal-1')
 
         var audio = new Audio('audio/pling.mp3');
         audio.play();
 
-        alert("cheats activated");
+        alert("cheat activated");
     }
 
 

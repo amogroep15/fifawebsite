@@ -22,7 +22,10 @@ require 'config.php';
     <title>FifaBet</title>
 </head>
 <header>
-    <h1><a class="homebutton" id="a1" href="index.php">FifaBet</a>   <i class="fas fa-futbol"></i></h1>
+    <div class="logo">
+        <h1><a class="homebutton" id="a1" href="index.php">FifaBet</a></h1>
+        <img  class="rotate-diagonal-1" src="imgs/fbi.svg">
+    </div>
     <ul>
         <li><a class="active" href="teams.php">Teams</a></li>
         <li>
