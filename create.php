@@ -19,7 +19,7 @@ else {
             <p>Team naam:</p><input type="text" name="name">
         </div>
         <div>
-            <input class="buttons" value="Team aanmaken" type="submit">
+            <input class="buttons1" value="Team aanmaken" type="submit">
         </div>
     </form>
 <?php

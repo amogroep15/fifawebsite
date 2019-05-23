@@ -25,7 +25,9 @@ require 'config.php';
     <h1><a class="homebutton" id="a1" href="index.php">FifaBet</a>   <i class="fas fa-futbol"></i></h1>
     <ul>
         <li><a class="active" href="teams.php">Teams</a></li>
-        <li><a href="login.php">Login</a></li>
+        <li>
+            <a href="login.php">Login</a>
+        </li>
         <li><a href="register.php">Register</a></li>
         <li><a href="index.php">Home</a></li>
         <li><?php
@@ -42,6 +44,28 @@ require 'config.php';
             <?php
             if (isset($_SESSION['id'])){
                 echo "<a class='nav-link' href='create.php'>Maak een Team</a>";
+            }
+
+            ?>
+        </li>
+        <li>
+            <?php
+            if(isset($_SESSION['admin'])){
+                if($_SESSION['admin'] == 1){
+                    echo '<a class="nav-link" href="matches.php">Competitie maken</a>';
+                }
+                else {
+                    header('Location: index.php?error=noadmin');
+                    exit();
+                }
+
+            }
+            ?>
+        </li>
+        <li>
+            <?php
+            if (isset($_SESSION['id'])){
+                echo "<a class='nav-link' href='download.php'>Download</a>";
             }
 
             ?>

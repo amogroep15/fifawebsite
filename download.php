@@ -10,11 +10,11 @@ require 'header.php';
 
 ?>
 
-<body>
-
-
-
-</body>
+<div class="downloadpage">
+    <div class = "download">
+        <h2>Download hier de applicatie </h2> <a href="#" class="buttons">Download</a>
+    </div>
+</div>
 
 
 <?php

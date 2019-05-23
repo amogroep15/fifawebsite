@@ -48,8 +48,8 @@ if($team == 0){
                 <p class="bold">Team naam:</p><input type="text" name="name" value="<?=$team['name']?>">
             </div>
             <div>
-                <input style="margin: 4px" class="buttonsb" type="submit" value="wijzig team naam" name="buttonsave">
-                <input style="margin: 4px" id="save" class="buttonsb" type="submit" value="wijzigingen opslaan">
+                <input style="margin: 4px" class="buttonsb1" type="submit" value="wijzig team naam" name="buttonsave">
+                <input style="margin: 4px" id="save" class="buttonsb1" type="submit" value="wijzigingen opslaan">
             </div>
         </form>
     </div>
@@ -70,7 +70,7 @@ if(!empty($team['players'])){
             echo '<input type="hidden" name="type" value="deleteplayer">';
             echo '<p class="bold">Players:</p>';
             echo '<p>'. ucfirst(htmlentities($playername['username'])). '</p>';
-            echo '<input class="buttonsr"  type="submit" value="verwijder speler">';
+            echo '<input class="buttonsr1"  type="submit" value="verwijder speler">';
             echo '</form>';
         }
     }
