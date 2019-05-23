@@ -17,9 +17,23 @@
             ·
             <a href="teams.php">Teams</a>
             ·
-            <a href="login.php">Login</a>
+            <?php
+            if (isset($_SESSION['id'])){
+                echo "";
+            }
+            else {
+                echo "<a  class='nav-link' href='login.php'>Login</a>";
+            }
+            ?>
             ·
-            <a href="register.php">Register</a>
+            <?php
+            if (isset($_SESSION['id'])){
+                echo "";
+            }
+            else {
+                echo "<a class='nav-link' href='register.php'>Register</a>";
+            }
+            ?>
         </p>
 
         <p class="footer-company-name">Fifabet <i class="fas fa-futbol"></i> © 2019</p>

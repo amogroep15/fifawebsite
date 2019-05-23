@@ -26,9 +26,25 @@ require 'config.php';
     <ul>
         <li><a class="active" href="teams.php">Teams</a></li>
         <li>
-            <a href="login.php">Login</a>
+            <?php
+            if (isset($_SESSION['id'])){
+                echo "";
+            }
+            else {
+                echo "<a  class='nav-link' href='login.php'>Login</a>";
+            }
+            ?>
         </li>
-        <li><a href="register.php">Register</a></li>
+        <li>
+            <?php
+            if (isset($_SESSION['id'])){
+                echo "";
+            }
+            else {
+                echo "<a class='nav-link' href='register.php'>Register</a>";
+            }
+            ?>
+        </li>
         <li><a href="index.php">Home</a></li>
         <li><?php
         if(isset($_SESSION['id'])){
