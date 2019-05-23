@@ -72,6 +72,10 @@ if ($_POST['type'] === 'register') {
 }
 
 if ($_POST['type'] === 'login'){
+    if(isset($_SESSION['id'])){
+        header('Location: index.php?error=noentry');
+        exit();
+    }
     $email = trim($_POST['email']);
     $password = $_POST['password'];
 
@@ -146,23 +150,6 @@ if ($_POST['type'] === 'create'){
     }
     $creator = $_SESSION['id'];
     $name = trim($_POST['name']);
-    $p1 = trim($_POST['p1']);
-    $p2 = trim($_POST['p2']);
-    $p3 = trim($_POST['p3']);
-    $p4 = trim($_POST['p4']);
-    $p5 = trim($_POST['p5']);
-    $p6 = trim($_POST['p6']);
-    $p7 = trim($_POST['p7']);
-    $p8 = trim($_POST['p8']);
-    $p9 = trim($_POST['p9']);
-    $p10 = trim($_POST['p10']);
-    $p11 = trim($_POST['p11']);
-    $p12 = trim($_POST['p12']);
-    $p13 = trim($_POST['p13']);
-    $p14 = trim($_POST['p14']);
-    $p15 = trim($_POST['p15']);
-    $p16 = trim($_POST['p16']);
-
 
     if(empty($name) || empty($creator)){
         header('Location: create.php?error=noname');
@@ -173,8 +160,6 @@ if ($_POST['type'] === 'create'){
         header('Location: create.php?error=charoverflow');
         exit();
     }
-
-
 
     $sql = "SELECT * from teams WHERE name = :name";
     $prepare = $db->prepare($sql);
