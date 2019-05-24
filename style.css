@@ -11,7 +11,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 90%;
     height: 100%;
     overflow: hidden;
     pointer-events: none;
@@ -132,6 +132,7 @@ body {
     /*width: 100%;*/
 
 /*}*/
+
 
 .footer-distributed{
     background-color: #00857c;
@@ -293,6 +294,7 @@ header {
     background-color: #00857c;
     color: white;
     height: 90px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -310,8 +312,8 @@ header {
 }
 
 .rotate-diagonal-1 {
-    -webkit-animation: rotate-diagonal-1 4s linear infinite both;
-    animation: rotate-diagonal-1 4s linear infinite both;
+    -webkit-animation: rotate-diagonal-1 7s linear infinite both;
+    animation: rotate-diagonal-1 7s linear infinite both;
     width: 70px;
     align-items: center;
 }
@@ -706,6 +708,7 @@ h1{
     max-width: 1260px;
     margin: 0 auto;
 }
+
 
 .matches {
     text-align: center;
