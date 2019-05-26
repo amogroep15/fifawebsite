@@ -1,4 +1,11 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: hfm
+ * Date: 27-5-2019
+ * Time: 00:14
+ */
+
 require 'header.php';
 $sql = "SELECT * FROM teams"; //gewoon een opslag van een string die je later gaat gebruiken
 $query = $db->query($sql); //verzoek naar de database, voer sql van hierboven uit
@@ -21,10 +28,11 @@ if (!isset($_SESSION['id'])) {
 
 ?>
 <main>
+
         <div class="container">
             <?php
             foreach ($matches as $match){
-                echo "<table>
+                echo "<table class='matchtable'>
 
                                     <tr >
                                         <td><p>{$match['team1']}</p></td>
@@ -50,5 +58,3 @@ if (!isset($_SESSION['id'])) {
 
 <?php require 'footer.php';
 ?>
-
-

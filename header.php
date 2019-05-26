@@ -26,8 +26,18 @@ require 'config.php';
         <h1><a class="homebutton" id="a1" href="index.php">FifaBet</a></h1>
         <img  class="rotate-diagonal-1" src="imgs/fbi.svg">
     </div>
-    <ul>
-        <li><a class="active" href="teams.php">Teams</a></li>
+    <ul class="menubar">
+        <li><?php
+            if(isset($_SESSION['id'])){
+                echo "<form action='loginController.php' method='post'>
+                <input type='hidden' name='type' value='logout'>
+                <input class='nav-link' type='submit' value='Afmelden'>
+                </form>";
+
+            }
+            ?>
+        </li>
+        <li><a class="nav-link" href="teams.php">Teams</a></li>
         <li>
             <?php
             if (isset($_SESSION['id'])){
@@ -48,17 +58,6 @@ require 'config.php';
             }
             ?>
         </li>
-        <li><a href="index.php">Home</a></li>
-        <li><?php
-        if(isset($_SESSION['id'])){
-            echo "<form action='loginController.php' method='post'>
-                <input type='hidden' name='type' value='logout'>
-                <input class='nav-link' type='submit' value='Afmelden'>
-                </form>";
-
-        }
-        ?>
-        </li>
         <li>
             <?php
             if (isset($_SESSION['id'])){
@@ -71,7 +70,35 @@ require 'config.php';
             <?php
             if(isset($_SESSION['admin'])){
                 if($_SESSION['admin'] == 1){
-                    echo '<a class="nav-link" href="matches.php">Competitie maken</a>';
+                    echo '<a class="nav-link" href="generatematch.php">Competitie maken</a>';
+                }
+                else {
+                    header('Location: index.php?error=noadmin');
+                    exit();
+                }
+
+            }
+            ?>
+        </li>
+        <li>
+            <?php
+            if(isset($_SESSION['admin'])){
+                if($_SESSION['admin'] == 1){
+                    echo '<a class="nav-link" href="set_time.php">tijd instellen</a>';
+                }
+                else {
+                    header('Location: index.php?error=noadmin');
+                    exit();
+                }
+
+            }
+            ?>
+        </li>
+        <li>
+            <?php
+            if(isset($_SESSION['admin'])){
+                if($_SESSION['admin'] == 1){
+                    echo '<a class="nav-link" href="fields.php">Aantal velden</a>';
                 }
                 else {
                     header('Location: index.php?error=noadmin');
@@ -89,6 +116,7 @@ require 'config.php';
 
             ?>
         </li>
+        <li><a href="index.php">Home</a></li>
     </ul>
 </header>
 <body>

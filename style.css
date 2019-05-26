@@ -348,28 +348,24 @@ header {
 }
 
 
-ul {
+.menubar ul {
     list-style-type: none;
     margin: 0;
     padding: 15px;
     overflow: hidden;
 }
 
-li {
+.menubar li {
     float: right;
+    list-style: none;
 }
 
-li a {
+.menubar li a {
     display: block;
     color: white;
     text-align: center;
     padding: 10px 12px;
     text-decoration: none;
-}
-
-li a:hover {
-    border: solid #18f2b2;
-    cursor: pointer;
 }
 
 ul .nav-link {
@@ -811,4 +807,16 @@ td, th {
     position: absolute;
     top: 100px;
     right: 145px;
+}
+
+.fieldnames {
+    color: black;
+}
+
+.fieldsli {
+    color: black;
+}
+
+.fieldsul {
+
 }
