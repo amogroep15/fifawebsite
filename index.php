@@ -15,7 +15,9 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                     $teams = $prepare->fetchAll(2);
                     echo json_encode($teams);
                     exit;
-            }        
+            }
+            http_response_code(403);
+            exit;        
         }         
     } 
 }

@@ -35,7 +35,7 @@ foreach ($teams as $team){
         
         echo '<a  class="buttonsb" href="edit.php?id='.$team['id'].'">wijzig team</a>';
     }
-    
+     l
 }
 
 echo '</div>';
