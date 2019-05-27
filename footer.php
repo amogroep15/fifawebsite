@@ -6,6 +6,19 @@
  * Time: 11:07
  */
 ?>
+    <ul class="circles">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+
 <footer class="footer-distributed">
 
     <div class="footer-left">

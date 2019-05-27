@@ -374,7 +374,7 @@ if ($_POST['type'] === 'competitionstart'){
 
 
     }
-    $sql = "UPDATE competition SET 
+    $sql = "UPDATE competitions SET 
         started = :started,
         playtime = :time,
         fields = :fields
@@ -402,7 +402,7 @@ if ($_POST['type'] === 'competitionstop'){
         }
 
     }
-    $sql = "UPDATE competition SET 
+    $sql = "UPDATE competitions SET 
     started = :1  
     ";
     $prepare = $db->prepare($sql);
