@@ -269,7 +269,7 @@ if ($_POST['type'] === 'edit'){
     if(isset($_SESSION['admin'])){
 
     }
-    else if($result['creator'] != $creator)
+    else if($result['creator'] != $creator )
     {
         header('Location: teams.php?error=nopermission');
         exit();

@@ -3,15 +3,15 @@
 $id = $_GET['id'];
 
 $sql = "SELECT * FROM matches WHERE id = :id";
-$prepare = $pdo->prepare($sql);
+$prepare = $db->prepare($sql);
 $prepare->execute([
     ':id' => $id
 ]);
 $match = $prepare->fetch(PDO::FETCH_ASSOC);
 
-if (isset($_SESSION["loggedin"])&& $_SESSION["loggedin"]=== true){
+if (isset($_SESSION["id"])){
     $sql = "SELECT * FROM users WHERE id = :id ";
-    $prepare = $pdo->prepare($sql);
+    $prepare = $db->prepare($sql);
     $prepare->execute([
         ':id' => $_SESSION["id"]
     ]);
@@ -23,9 +23,9 @@ else{
     header("location: index.php");
 }
 
-if (isset($_SESSION["loggedin"])&& $_SESSION["loggedin"]=== true){
+if (isset($_SESSION["id"])){
     $sql = "SELECT * FROM users WHERE id = :id";
-    $prepare = $pdo->prepare($sql);
+    $prepare = $db->prepare($sql);
     $prepare->execute([
         ':id' => $_SESSION['id']
     ]);

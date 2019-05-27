@@ -1,25 +1,26 @@
 <?php require 'header.php';
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+}
+else{
+    header('Location: index.php?error=nopermission');
+    exit();
+}
 
-$id = $_GET['id'];
 
 $sql = "SELECT * FROM matches WHERE id = :id";
-$prepare = $pdo->prepare($sql);
+$prepare = $db->prepare($sql);
 $prepare->execute([
     ':id' => $id
 ]);
 $match = $prepare->fetch(PDO::FETCH_ASSOC);
 
-if (!isset($_SESSION['id'])) {
-    die("I'm sorry, this page is locked, admins only <a href='login.php'>Login</a> first.");
+if (!isset($_SESSION['admin'])) {
+    header('Location: index.php');
+    exit();
 }
-if (isset($_SESSION["loggedin"])&& $_SESSION["loggedin"]=== true){
-    $sql = "SELECT * FROM users WHERE id = :id ";
-    $prepare = $pdo->prepare($sql);
-    $prepare->execute([
-        ':id' => $_SESSION["id"]
-    ]);
-    $user = $prepare->fetch(PDO::FETCH_ASSOC);
-//    echo "welkom: {$user['username']}";
+if (isset($_SESSION["id"])){
+    echo "welkom: {$_SESSION['username']}";
 
 }
 

@@ -63,7 +63,7 @@ if ($_POST['type'] == 'create-competition') {
 
 
     foreach ($teams as $team) {
-        array_push($teamsArray, $team['teamname']);
+        array_push($teamsArray, $team['name']);
     }
 
     $arrLength = count($teamsArray);
@@ -85,10 +85,9 @@ if ($_POST['type'] == 'create-competition') {
 
 
                 $matchsql = "INSERT INTO matches ( team1, team2, length_match, length_rest, length_break ,field_id)
-                        values (:team1, :team2, :length_match, :length_rest, :length_break ,:field_id)";
-                $prepare = $pdo->prepare($matchsql);
+                        values(:team1, :team2, :length_match, :length_rest, :length_break ,:field_id)";
+                $prepare = $db->prepare($matchsql);
                 $prepare->execute([
-
                     ':team1' => $teamsArray[$i],
                     ':team2' => $teamsArray[$x],
                     ':length_match' => $length_match,
@@ -96,7 +95,6 @@ if ($_POST['type'] == 'create-competition') {
                     ':length_break' => $length_break,
                     ':field_id' => $currentfield
                 ]);
-
             }
         }
     }
@@ -176,7 +174,7 @@ if ($_POST['type'] === 'scores') {
 
     ]);
 
-    header("location: scores.php");
+    header("location: matches.php");
     exit;
 
 }
