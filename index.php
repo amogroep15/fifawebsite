@@ -42,9 +42,7 @@ if(isset ($_GET['error'])) {
         echo "<script> alert('Geen Toegang')</script>";
     }
 }
-if (isset($_SESSION['id'])){
-    echo "<p class='username'>Welkom ".ucfirst(htmlentities($_SESSION['username']))."</p>";
-}
+
 ?>
 
 <h2 id="welkom" class="welkom">Welkom bij Fifabet</h2>
