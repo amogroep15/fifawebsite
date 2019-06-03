@@ -18,27 +18,29 @@ $sql = "SELECT * FROM fields";
 $query = $db->query($sql); //verzoek naar de database, voer sql van hierboven uit
 $fields = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
-<div class="container">
-    <div>
+<div class="downloadpage">
+    <div class="field">
         <?php
         echo '<ul  class="fieldsul">';
         foreach ($fields as $field){
             $fieldname = htmlentities($field['fieldname']);
 
             echo
-            "<li class='fieldsli'><a class='fieldnames' href='fielddetail.php?id={$field ['id']}'>$fieldname </a></li>";
+            "<li class='fieldsli'><a class='fieldnames' href='fielddetail.php?id={$field ['id']}'>$fieldname</a> 
+
+             </li>";
         }
         echo '</ul>';
         ?>
-    </div>
 
-    <a href="addfield.php">Veld toevoegen</a>
+
+    <a class="add" href="addfield.php">Veld toevoegen</a>
 
     <form action="controller.php" method="post">
         <input type="hidden" name="type" value='reset_fields'>
         <button class='delete-button' type='submit'>Alle velden verwijderen</button>
     </form>
-
+    </div>
 
 </div>
 

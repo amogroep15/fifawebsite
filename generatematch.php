@@ -11,8 +11,8 @@ $sql = "SELECT * FROM matches";
 
 
 ?>
-
-<form action="controller.php" method="post">
+<div class="downloadpage">
+<form  class="genmatch" action="controller.php" method="post">
     <input type='hidden' name='type' value='create-competition'>
     <label for="start_time">Begin tijd van de wedstrijden</label>
     <input type="time" name="start_time" id="start_time">
@@ -24,6 +24,7 @@ $sql = "SELECT * FROM matches";
     <input type="text" name="break" id="break">
     <button type="submit">Wedstrijdschema Maken</button>
 </form>
+</div>
 
 
 <?php require 'footer.php';?>

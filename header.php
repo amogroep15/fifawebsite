@@ -84,7 +84,7 @@ require 'config.php';
             <?php
             if(isset($_SESSION['admin'])){
                 if($_SESSION['admin'] == 1){
-                    echo '<a class="nav-link" href="set_time.php">tijd instellen</a>';
+                    echo '<a class="nav-link" href="set_time.php">Tijd instellen</a>';
                 }
                 else {
                     header('Location: index.php?error=noadmin');
@@ -98,7 +98,7 @@ require 'config.php';
             <?php
             if(isset($_SESSION['admin'])){
                 if($_SESSION['admin'] == 1){
-                    echo '<a class="nav-link" href="fields.php">Aantal velden</a>';
+                    echo '<a class="nav-link" href="fields.php">Velden instellen</a>';
                 }
                 else {
                     header('Location: index.php?error=noadmin');

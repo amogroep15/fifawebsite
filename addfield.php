@@ -15,9 +15,9 @@ if (isset($_SESSION["loggedin"])&& $_SESSION["loggedin"]=== true){
 }
 ?>
 
-    <div class="container">
+    <div class="downloadpage">
 
-        <form class="addfield-form" action="controller.php" method="post">
+        <form class="addfield" action="controller.php" method="post">
             <input type="hidden" name="type" value="addfield">
 
             <input class="addfield-input" type="text" name="fieldname" id="fieldame" placeholder="Veld Naam">
