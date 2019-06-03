@@ -10,7 +10,7 @@ $prepare->execute([
 $field = $prepare->fetch(PDO::FETCH_ASSOC);
 
 
-if (isset($_SESSION["loggedin"])&& $_SESSION["loggedin"]=== true){
+if (isset($_SESSION["id"])){
     $sql = "SELECT * FROM users WHERE id = :id ";
     $prepare = $db->prepare($sql);
     $prepare->execute([
@@ -24,7 +24,7 @@ else{
     header("location: index.php");
 }
 
-if (isset($_SESSION["loggedin"])&& $_SESSION["loggedin"]=== true){
+if (isset($_SESSION["id"])){
     $sql = "SELECT * FROM users WHERE id = :id";
     $prepare = $db->prepare($sql);
     $prepare->execute([
@@ -39,8 +39,8 @@ $fieldname = htmlentities($field['fieldname']);
 ?>
 
 
-    <div class="container">
-
+    <div class="downloadpage">
+        <div class="field">
         <h3>&nbsp;<?=$fieldname?></h3>
 
         <?php if ($user ['admin'] == 1 ){
@@ -49,6 +49,6 @@ $fieldname = htmlentities($field['fieldname']);
     echo "<button class='delete-button' type='submit' value='delete_field'> Verwijderen </button>
     </form>";
         }?>
-
+        </div>
     </div>
 <?php require 'footer.php'; ?>
