@@ -118,5 +118,10 @@ require 'config.php';
         </li>
         <li><a href="index.php">Home</a></li>
     </ul>
+    <?php
+    if (isset($_SESSION['id'])){
+        echo "<p class='username'>Welkom ".ucfirst(htmlentities($_SESSION['username']))."</p>";
+    }
+    ?>
 </header>
 <body>

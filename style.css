@@ -930,6 +930,20 @@ td, th {
     padding: 90px;
 }
 
+.scores {
+    text-align: center;
+    margin: 0 auto;
+    padding: 150px;
+}
+
+
+
+.teamdetail {
+    text-align: center;
+    margin: 0px auto;
+    padding: 150px
+}
+
 @media only screen and (max-width: 1024px) {
     body {
         background-color: red;
