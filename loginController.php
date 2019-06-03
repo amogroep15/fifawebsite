@@ -415,3 +415,19 @@ if ($_POST['type'] === 'competitionstop'){
     exit();
     
 }
+
+if ($_POST['type'] === 'key'){
+    if(isset($_SESSION['admin'])){
+
+    }
+    else{
+        header('Location: index.php?error=nopermission');
+        exit();
+    }
+    $random = md5(rand($min = 999999999, $max = 99999999));
+echo $random;
+    $sql = "INSERT INTO tokens(token) VALUES('$random')";
+    $query = $db->query($sql);
+    
+    header('location: keys.php?create=success');
+}

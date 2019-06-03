@@ -46,7 +46,7 @@ if ($_POST['type'] == 'create-competition') {
     $timesql = "SELECT *FROM match_requirements";
     $query = $db->query($timesql);
     $match_requirements = $query->fetchall(PDO::FETCH_ASSOC);
-
+    
 
     foreach ($match_requirements as $match_requirement) {
 
@@ -57,7 +57,7 @@ if ($_POST['type'] == 'create-competition') {
         $length_rest  = $match_requirement['rest'];
         $length_break = $match_requirement['break'];
 //      
-
+        
         $timestamp = $yourdatetime + $minutes * 60;
 
     }
@@ -101,14 +101,14 @@ if ($_POST['type'] == 'create-competition') {
                 $prepare->execute([
                     ':team1' => $teamsArray[$i],
                     ':team2' => $teamsArray[$x],
-                    ':start_timestamp' => date('H:i:s', $start_time),
+                    ':start_timestamp' => date('H:i:s', $yourdatetime),
                     ':length_match' => $length_match,
                     ':length_rest' => $length_rest,
                     ':length_break' => $length_break,
                     ':field_id' => $currentfield
                 ]);
-
-                $start_time = strtotime("+$minutes minutes", strtotime($yourdatetime));
+                    
+                $yourdatetime = strtotime("+$minutes minutes", strtotime($yourdatetime));
                 
             }
         }
