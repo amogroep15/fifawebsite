@@ -5,9 +5,16 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     }
     else if($_GET['request'] == 'matches'){        
         if(isset($_GET['key'])){
-            $key = $_GET['key'];
-            if($key == 'A7PD1NSIIWls9WAD14'){
-                require 'config.php';
+            require 'config.php';
+            $key = trim($_GET['key']);
+            $sql = "SELECT * FROM tokens WHERE token = :token";
+                    $prepare = $db->prepare($sql);
+                    $prepare->execute([
+                        ':token' => $key
+                    ]);
+                    $return = $prepare->fetchAll(2);
+
+            if($return){
                 header('Content-Type: application/json');           
                     $sql = "SELECT * FROM teams";
                     $prepare = $db->prepare($sql);

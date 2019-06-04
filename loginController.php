@@ -431,3 +431,24 @@ echo $random;
     
     header('location: keys.php?create=success');
 }
+if ($_POST['type'] === 'deletekey'){
+    echo 'test1';
+    if(isset($_SESSION['admin'])){
+
+    }
+    else{
+        header('Location: index.php?error=nopermission');
+        exit();
+    }
+    $id = trim($_GET['id']);
+    $sql = "DELETE from tokens WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id
+    ]);
+
+    echo 'test2';
+    
+    header('location: keys.php?delete=success');
+    exit;
+}
