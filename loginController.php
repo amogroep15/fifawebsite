@@ -452,3 +452,59 @@ if ($_POST['type'] === 'deletekey'){
     header('location: keys.php?delete=success');
     exit;
 }
+if ($_POST['type'] === 'addplayer'){
+    if(isset($_SESSION['id'])){
+
+    }
+    else {
+        header('Location: index.php?error=nologin');
+        exit();
+    }
+    if(isset($_GET['id']))
+    {
+        $id = $_GET['id'];
+    }
+    else{
+        header('Location: teams.php?error=noid');
+        exit();
+    }
+    if(isset($_GET['pid'])){
+    $playerid = $_GET['pid'];
+    }
+    else{
+    header('Location: teams.php?error=noid');
+    exit();
+    }
+
+    $sql = "SELECT * FROM teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id'     => $id
+    ]);
+    $result = $prepare->fetch();
+    if($result == 0){
+        header('Location: teams.php?error=teamnotexist');
+        exit();
+    }
+    $players = array();
+    if(!empty($result['players'])){
+        $players = explode(':', $result['players']);
+    }
+    if(in_array($playerid, $players)){
+        header("Location: addplayer.php?id=$id&error=alreadyinteam");
+        exit;
+    }
+    array_push($players, $playerid);
+    $players = implode(":" , $players);
+    $sql = "UPDATE teams SET 
+        players = :players
+        WHERE id = :id   
+        ";
+   $prepare = $db->prepare($sql);
+   $prepare->execute([
+       ':players' => $players,
+       ':id' => $id
+   ]);
+   header('Location: teams.php?success=join');
+    exit();
+}

@@ -27,11 +27,11 @@ foreach($tokens as $token){
 ?>
 
 <form action="loginController.php" method="POST">
-        <input type="hidden" name="type" value="key">
-        <div>
-            <input class="buttons1" value="Nieuwe key" type="submit">
-        </div>
-    </form>
+    <input type="hidden" name="type" value="key">
+    <div>
+        <input class="buttons1" value="Nieuwe key" type="submit">
+    </div>
+</form>
 
 
     

@@ -54,6 +54,7 @@ if(isset( $_SESSION['id'])){
         echo '</form>';
         }
         echo '<a class="buttonsb" href="edit.php?id='.$team['id'].'">wijzig team</a>';
+        echo '<a class="buttonsb" href="addplayer.php?id='.$team['id'].'">voeg spelers toe</a>';
 }
 };
 
