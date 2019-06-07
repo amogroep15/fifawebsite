@@ -33,5 +33,6 @@ foreach($tokens as $token){
     </div>
 </form>
 
-
+<?php
+require 'footer.php';
     

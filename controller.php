@@ -175,6 +175,10 @@ if ($_POST['type'] === 'scores') {
     $team1_score = $_POST['team1_score'];
     $team2_score = $_POST['team2_score'];
 
+    if($team1_score < 0 || $team2_score <0){
+        header('Location: scores.php?error=invalidvalues&id='.$id);
+        exit;
+    }
 
     $sql = "UPDATE matches SET team1_score= :team1_score, team2_score= :team2_score WHERE id= :id";
 

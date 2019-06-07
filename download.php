@@ -12,7 +12,7 @@ require 'header.php';
 
 <div class="downloadpage">
     <div class = "download">
-        <h2>Download hier de applicatie </h2> <a href="#" class="buttons">Download</a>
+        <h2>Download hier de applicatie </h2> <a href="dl/FifaBetApp.exe" class="buttons">Download</a>
     </div>
 </div>
 

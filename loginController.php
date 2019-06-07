@@ -425,7 +425,6 @@ if ($_POST['type'] === 'key'){
         exit();
     }
     $random = md5(rand($min = 999999999, $max = 99999999));
-echo $random;
     $sql = "INSERT INTO tokens(token) VALUES('$random')";
     $query = $db->query($sql);
     
