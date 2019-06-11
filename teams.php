@@ -52,9 +52,10 @@ if(isset( $_SESSION['id'])){
         echo '<input type="hidden" name="type" value="delete">';
         echo '<input class="buttonsr" type="submit" value="Verwijder team">';
         echo '</form>';
-        }
         echo '<a class="buttonsb" href="edit.php?id='.$team['id'].'">wijzig team</a>';
-        echo '<a class="buttonsb" href="addplayer.php?id='.$team['id'].'">voeg spelers toe</a>';
+        echo '<a class="buttons" href="addplayer.php?id='.$team['id'].'">voeg spelers toe</a>';
+        }
+
 }
 };
 

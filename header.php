@@ -70,21 +70,7 @@ require 'config.php';
             <?php
             if(isset($_SESSION['admin'])){
                 if($_SESSION['admin'] == 1){
-                    echo '<a class="nav-link" href="generatematch.php">Competitie maken</a>';
-                }
-                else {
-                    header('Location: index.php?error=noadmin');
-                    exit();
-                }
-
-            }
-            ?>
-        </li>
-        <li>
-            <?php
-            if(isset($_SESSION['admin'])){
-                if($_SESSION['admin'] == 1){
-                    echo '<a class="nav-link" href="set_time.php">Tijd instellen</a>';
+                    echo '<a class="nav-link" href="set_time.php">Competitie maken</a>';
                 }
                 else {
                     header('Location: index.php?error=noadmin');

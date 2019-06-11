@@ -25,17 +25,29 @@ if(!$team){
     header('Location: teams.php');
     exit;
 }
-
-echo '<h1> Team: ' . $team['name'] .'</h1>';
+echo '<div class="teams">';
+echo '<h2> Team: ' . $team['name'] .'</h2>';
 
 $sql = "SELECT * from users";
 $query = $db->query($sql);
 $users = $query->fetchAll(2);
-
+echo '<div class="">';
 foreach($users as $user){
     echo '<form action="loginController.php?id='.$team['id'].'&pid='.$user['id'].'" method="POST">';
-    echo '<p>'.$user['username']. '</p>';
-    echo '<input type="hidden" name="type" value="addplayer">';
-    echo '<input class="buttons" type="submit" value="Voeg toe">';;
-
+    echo '<table class="playersadd">';
+    echo '
+        <tr>
+            <th>'.$user['username']. '</th>
+            <th><input type="hidden" name="type" value="addplayer"></th>
+            <th><input class="buttonsb" type="submit" value="Voeg toe"></th>
+        </tr>';
+    echo '</table>';
 }
+echo '</div>';
+echo '</div>';
+
+require 'footer.php';
+
+?>
+
+

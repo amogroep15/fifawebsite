@@ -776,12 +776,12 @@ td, th {
 
 .myteams {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 5px;
-    width: 600px;
-    column-gap: 0px;
+    width: 650px;
+    column-gap: 10px;
     padding: 5px;
-    margin: 10px auto
+    margin: 10px auto;
 }
 
 .teamname {
@@ -948,4 +948,33 @@ td, th {
     body {
         background-color: red;
     }
+}
+
+.matchestable {
+    margin: 0 auto;
+}
+
+.matchestable th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.matchestable th, td {
+    border: 1px solid black
+}
+
+.ownteam {
+    text-decoration: none;
+    color: #000;
+    border: #18f2b2;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.playersadd {
+    text-align: center;
+    margin: 0 auto;
 }

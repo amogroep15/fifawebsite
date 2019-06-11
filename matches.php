@@ -22,25 +22,27 @@ if (!isset($_SESSION['id'])) {
 ?>
 <main>
         <div class="container">
+            <table class='matchestable'>
+            <tr>
+                <th>Wie</th>
+                <th>Wedstrijd duur</th>
+                <th>Tussenpauze</th>
+                <th>Pauze</th>
+                <th>Veld</th>
+            </tr>
             <?php
             foreach ($matches as $match){
-                echo "<table>
-
-                                    <tr >
-                                        <td><p>{$match['team1']}</p></td>
-                                        <td><h3> <a href='matchdetail.php?id={$match ['id']}'>VS </a></h3></td>
-                                        <td><p>{$match['team2']}</p></td>
-                                        <td><p>Hoelaat:{$match['start_timestamp']}</p></td>
-                                        <td><p>Wedstrijd duur: {$match['length_match']} min</p></td>
-                                        <td><p>Tussenpauze: {$match['length_rest']} min</p></td>
-                                        <td><p>Grote Pauze: {$match['length_break']} min</p></td>
-                                        <td><p>{$match['field_id']}</p></td>
-
-                                    </tr>
-
-                                  </table>";
+                echo "
+                                    <tr>
+                                        <td>{$match['team1']} <a href='matchdetail.php?id={$match ['id']}'>VS </a>{$match['team2']}</td>
+                                        <td>{$match['length_match']} min</td>
+                                        <td>{$match['length_rest']} min</td>
+                                        <td{$match['length_break']} min</td>
+                                        <td>{$match['field_id']}</td>
+                                    </tr>";
             }
             ?>
+            </table>
         </div>
 
 
