@@ -1,26 +1,23 @@
 <?php require 'header.php';
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+}
+else{
+    header('Location: index.php?error=nopermission');
+    exit();
+}
 
-$id = $_GET['id'];
 
 $sql = "SELECT * FROM matches WHERE id = :id";
-$prepare = $pdo->prepare($sql);
+$prepare = $db->prepare($sql);
 $prepare->execute([
     ':id' => $id
 ]);
 $match = $prepare->fetch(PDO::FETCH_ASSOC);
 
-if (!isset($_SESSION['id'])) {
-    die("I'm sorry, this page is locked, admins only <a href='login.php'>Login</a> first.");
-}
-if (isset($_SESSION["loggedin"])&& $_SESSION["loggedin"]=== true){
-    $sql = "SELECT * FROM users WHERE id = :id ";
-    $prepare = $pdo->prepare($sql);
-    $prepare->execute([
-        ':id' => $_SESSION["id"]
-    ]);
-    $user = $prepare->fetch(PDO::FETCH_ASSOC);
-//    echo "welkom: {$user['username']}";
-
+if (!isset($_SESSION['admin'])) {
+    header('Location: index.php');
+    exit();
 }
 
 
@@ -30,9 +27,8 @@ $team1_score = htmlentities($match['team1_score']);
 $team2_score = htmlentities($match['team2_score']);
 ?>
 
-<div class="container">
-
-    <form action="controller.php?id=<?=$match ['id']?>" method="post">
+<div class="downloadpage">
+    <form class="scores" action="controller.php?id=<?=$match ['id']?>" method="post">
         <input type="hidden" name="type" value="scores">
 
 
@@ -41,8 +37,7 @@ $team2_score = htmlentities($match['team2_score']);
         <input type="text" name="team2_score" id="team2_score">
 
 
-        <button type="submit"> update </button>
-
+        <button class="buttons" type="submit"> update </button>
     </form>
 
 </div>

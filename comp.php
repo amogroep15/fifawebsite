@@ -48,7 +48,7 @@ if (!isset($_SESSION['id'])) {
 
                                   </table>";
             }
-            ?>
+            ?> 
         </div>
 
 

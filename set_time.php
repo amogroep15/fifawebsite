@@ -1,8 +1,8 @@
 <?php require 'header.php';
 
 ?>
-
-<form action="controller.php" method="post">
+<div class="downloadpage">
+<form  class="time" action="controller.php" method="post">
     <input type='hidden' name='type' value='set_time'>
 
     <label for="start_time">Begin tijd van de wedstrijden</label>
@@ -19,6 +19,8 @@
 
     <button type="submit">Registreer de tijd</button>
 </form>
+
+</div>
 
 <?php require 'footer.php';?>
 

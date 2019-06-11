@@ -3,11 +3,18 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
     if(empty($_GET['request'])){
         
     }
-    else if($_GET['request'] == 'matches'){        
+    else if($_GET['request'] == 'teams'){        
         if(isset($_GET['key'])){
-            $key = $_GET['key'];
-            if($key == 'A7PD1NSIIWls9WAD14'){
-                require 'config.php';
+            require 'config.php';
+            $key = trim($_GET['key']);
+            $sql = "SELECT * FROM tokens WHERE token = :token";
+                    $prepare = $db->prepare($sql);
+                    $prepare->execute([
+                        ':token' => $key
+                    ]);
+                    $return = $prepare->fetchAll(2);
+
+            if($return){
                 header('Content-Type: application/json');           
                     $sql = "SELECT * FROM teams";
                     $prepare = $db->prepare($sql);
@@ -15,7 +22,33 @@ if($_SERVER['REQUEST_METHOD'] == 'GET'){
                     $teams = $prepare->fetchAll(2);
                     echo json_encode($teams);
                     exit;
-            }        
+            }
+            http_response_code(403);
+            exit;        
+        }         
+    } 
+    else if($_GET['request'] == 'matches'){        
+        if(isset($_GET['key'])){
+            require 'config.php';
+            $key = trim($_GET['key']);
+            $sql = "SELECT * FROM tokens WHERE token = :token";
+                    $prepare = $db->prepare($sql);
+                    $prepare->execute([
+                        ':token' => $key
+                    ]);
+                    $return = $prepare->fetchAll(2);
+
+            if($return){
+                header('Content-Type: application/json');           
+                    $sql = "SELECT * FROM matches";
+                    $prepare = $db->prepare($sql);
+                    $prepare->execute([]);
+                    $teams = $prepare->fetchAll(2);
+                    echo json_encode($teams);
+                    exit;
+            }
+            http_response_code(403);
+            exit;        
         }         
     } 
 }
@@ -40,9 +73,7 @@ if(isset ($_GET['error'])) {
         echo "<script> alert('Geen Toegang')</script>";
     }
 }
-if (isset($_SESSION['id'])){
-    echo "<p class='username'>Welkom ".ucfirst(htmlentities($_SESSION['username']))."</p>";
-}
+
 ?>
 
 <h2 id="welkom" class="welkom">Welkom bij Fifabet</h2>

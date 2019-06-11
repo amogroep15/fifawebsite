@@ -269,7 +269,7 @@ if ($_POST['type'] === 'edit'){
     if(isset($_SESSION['admin'])){
 
     }
-    else if($result['creator'] != $creator)
+    else if($result['creator'] != $creator )
     {
         header('Location: teams.php?error=nopermission');
         exit();
@@ -414,4 +414,96 @@ if ($_POST['type'] === 'competitionstop'){
     header('Location: matches.php?success=ended');
     exit();
     
+}
+
+if ($_POST['type'] === 'key'){
+    if(isset($_SESSION['admin'])){
+
+    }
+    else{
+        header('Location: index.php?error=nopermission');
+        exit();
+    }
+    $random = md5(rand($min = 999999999, $max = 99999999));
+    $sql = "INSERT INTO tokens(token) VALUES('$random')";
+    $query = $db->query($sql);
+    
+    header('location: keys.php?create=success');
+}
+if ($_POST['type'] === 'deletekey'){
+    echo 'test1';
+    if(isset($_SESSION['admin'])){
+
+    }
+    else{
+        header('Location: index.php?error=nopermission');
+        exit();
+    }
+    $id = trim($_GET['id']);
+    $sql = "DELETE from tokens WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id' => $id
+    ]);
+
+    echo 'test2';
+    
+    header('location: keys.php?delete=success');
+    exit;
+}
+if ($_POST['type'] === 'addplayer'){
+    if(isset($_SESSION['id'])){
+
+    }
+    else {
+        header('Location: index.php?error=nologin');
+        exit();
+    }
+    if(isset($_GET['id']))
+    {
+        $id = $_GET['id'];
+    }
+    else{
+        header('Location: teams.php?error=noid');
+        exit();
+    }
+    if(isset($_GET['pid'])){
+    $playerid = $_GET['pid'];
+    }
+    else{
+    header('Location: teams.php?error=noid');
+    exit();
+    }
+
+    $sql = "SELECT * FROM teams WHERE id = :id";
+    $prepare = $db->prepare($sql);
+    $prepare->execute([
+        ':id'     => $id
+    ]);
+    $result = $prepare->fetch();
+    if($result == 0){
+        header('Location: teams.php?error=teamnotexist');
+        exit();
+    }
+    $players = array();
+    if(!empty($result['players'])){
+        $players = explode(':', $result['players']);
+    }
+    if(in_array($playerid, $players)){
+        header("Location: addplayer.php?id=$id&error=alreadyinteam");
+        exit;
+    }
+    array_push($players, $playerid);
+    $players = implode(":" , $players);
+    $sql = "UPDATE teams SET 
+        players = :players
+        WHERE id = :id   
+        ";
+   $prepare = $db->prepare($sql);
+   $prepare->execute([
+       ':players' => $players,
+       ':id' => $id
+   ]);
+   header('Location: teams.php?success=join');
+    exit();
 }

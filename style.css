@@ -312,8 +312,8 @@ header {
 }
 
 .rotate-diagonal-1 {
-    -webkit-animation: rotate-diagonal-1 7s linear infinite both;
-    animation: rotate-diagonal-1 7s linear infinite both;
+    -webkit-animation: rotate-diagonal-1 10s linear infinite both;
+    animation: rotate-diagonal-1 10s linear infinite both;
     width: 70px;
     align-items: center;
 }
@@ -518,7 +518,7 @@ h1{
 
 .container {
     background-color: white;
-    height: 80vh;
+    height: 100%;
     /*border: #32CD32;*/
     /*border-style: solid;*/
     /*border-width: 5px;*/
@@ -776,12 +776,12 @@ td, th {
 
 .myteams {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-gap: 5px;
-    width: 600px;
-    column-gap: 0px;
+    width: 650px;
+    column-gap: 10px;
     padding: 5px;
-    margin: 10px auto
+    margin: 10px auto;
 }
 
 .teamname {
@@ -813,10 +813,168 @@ td, th {
     color: black;
 }
 
-.fieldsli {
-    color: black;
+.field li {
+    color: #000;
+    border: #18f2b2;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    width: 100px;
+    margin: 5px auto;
+    padding: 5px;
+
+
 }
 
-.fieldsul {
+.field li a {
+    text-decoration: none;
+}
 
+.field ul {
+    list-style: none;
+    padding: 0px;
+}
+
+.field {
+    text-align: center;
+    margin: 0 auto;
+    padding: 100px;
+    margin: 0 auto;
+}
+
+.field button {
+    margin: 7px;
+    text-decoration: none;
+    color: white;
+    border: #9e1505;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #9e1505;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 175px;
+    font-size: 0.9em;
+}
+
+.field .add {
+    text-decoration: none;
+    color: white;
+    border: #18f2b2;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #18f2b2;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 225px;
+    font-size: 1em;
+}
+
+.time {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 5px;
+    width: 240px;
+    column-gap: 0px;
+    padding: 90px;
+    margin: 0px auto;
+}
+
+.time button {
+    text-decoration: none;
+    color: white;
+    border: #18f2b2;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #18f2b2;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 240px;
+    font-size: 1em;
+}
+
+.genmatch {
+    text-align: center;
+    padding: 90px;
+}
+
+.genmatch button {
+    text-decoration: none;
+    color: white;
+    border: #18f2b2;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #18f2b2;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 240px;
+    font-size: 1.1em;
+}
+
+.addfield button {
+    text-decoration: none;
+    color: white;
+    border: #18f2b2;
+    border-style: solid;
+    border-width: 5px;
+    background-color: #18f2b2;
+    border-radius: 10px;
+    cursor: pointer;
+    width: 110px;
+    font-size: 1.1em;
+}
+
+.addfield {
+    text-align: center;
+    padding: 90px;
+}
+
+.scores {
+    text-align: center;
+    margin: 0 auto;
+    padding: 150px;
+}
+
+
+
+.teamdetail {
+    text-align: center;
+    margin: 0px auto;
+    padding: 150px
+}
+
+@media only screen and (max-width: 1024px) {
+    body {
+        background-color: red;
+    }
+}
+
+.matchestable {
+    margin: 0 auto;
+}
+
+.matchestable th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.matchestable th, td {
+    border: 1px solid black
+}
+
+.ownteam {
+    text-decoration: none;
+    color: #000;
+    border: #18f2b2;
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.playersadd {
+    text-align: center;
+    margin: 0 auto;
 }

@@ -70,7 +70,7 @@ require 'config.php';
             <?php
             if(isset($_SESSION['admin'])){
                 if($_SESSION['admin'] == 1){
-                    echo '<a class="nav-link" href="generatematch.php">Competitie maken</a>';
+                    echo '<a class="nav-link" href="set_time.php">Competitie maken</a>';
                 }
                 else {
                     header('Location: index.php?error=noadmin');
@@ -84,21 +84,7 @@ require 'config.php';
             <?php
             if(isset($_SESSION['admin'])){
                 if($_SESSION['admin'] == 1){
-                    echo '<a class="nav-link" href="set_time.php">tijd instellen</a>';
-                }
-                else {
-                    header('Location: index.php?error=noadmin');
-                    exit();
-                }
-
-            }
-            ?>
-        </li>
-        <li>
-            <?php
-            if(isset($_SESSION['admin'])){
-                if($_SESSION['admin'] == 1){
-                    echo '<a class="nav-link" href="fields.php">Aantal velden</a>';
+                    echo '<a class="nav-link" href="fields.php">Velden instellen</a>';
                 }
                 else {
                     header('Location: index.php?error=noadmin');
@@ -118,5 +104,10 @@ require 'config.php';
         </li>
         <li><a href="index.php">Home</a></li>
     </ul>
+    <?php
+    if (isset($_SESSION['id'])){
+        echo "<p class='username'>Welkom ".ucfirst(htmlentities($_SESSION['username']))."</p>";
+    }
+    ?>
 </header>
 <body>
